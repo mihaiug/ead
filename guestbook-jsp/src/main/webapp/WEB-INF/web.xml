@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+	
+  <display-name>Guestbook JSP Web Application</display-name>
+  <servlet>
+  	<display-name>GuestBook Servlet Controller</display-name>
+  	<servlet-name>GuestBookServlet</servlet-name>
+
+  	<servlet-class>ro.ucv.inf.ead.guestbook.GuestBookServlet</servlet-class>
+  	<init-param>
+  		<description>JDBC Driver Class</description>
+  		<param-name>db.driver</param-name>
+  		<param-value>com.mysql.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>db.url</param-name>
+  		<param-value>jdbc:mysql://localhost:3306/guestbook?user=root&amp;password=parola</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>GuestBookServlet</servlet-name>
+  	<url-pattern>/GuestBook</url-pattern>
+  </servlet-mapping>
+</web-app>

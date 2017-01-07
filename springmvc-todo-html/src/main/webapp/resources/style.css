@@ -1,0 +1,32 @@
+a:link, a:visited,  a:active {
+    color: blue;
+}
+
+a:hover {
+    color: red;
+}
+
+
+.error {
+	color: #ff0000;
+}
+
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+
+.info {
+	color: #00ff00;
+}
+
+.infoblock {
+	color: #000;
+	background-color: #EEffEE;
+	border: 3px solid #00ff00;
+	padding: 8px;
+	margin: 16px;
+}
