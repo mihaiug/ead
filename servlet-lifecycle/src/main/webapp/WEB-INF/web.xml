@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app 
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
 
 	<display-name>Servlet Life Cycle Demo Servlets</display-name>
 
@@ -20,6 +19,15 @@
 			<param-name>adminEmail</param-name>
 			<param-value>admin@inf.ucv.local</param-value>
 		</init-param>
+		
+		<!-- 
+		The optional contents of these element must be an integer indicating 
+		the order in which the servlet should be loaded. If the value is a negative 
+		integer, or the element is not present, the container is free to load the 
+		servlet whenever it chooses. If the value is a positive integer or 0, the 
+		container must load and initialize the servlet as the application is deployed 
+		-->
+		<load-on-startup>-1</load-on-startup>  
 	</servlet>
 	
 	<servlet-mapping>
