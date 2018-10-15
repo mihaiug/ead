@@ -1,4 +1,4 @@
-Hello World using Java Servlets and Java Server Pages
+_Hello World_ using Java Servlets and Java Server Pages
 =====================================================
 
 In this example is implemented a simple _"Hello World"_ using Java Servlets and Java Server Pages. 
@@ -7,12 +7,12 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
-* [Apache Maven] (https://maven.apache.org) 
-* [Apache Tomcat] (https://tomcat.apache.org)
-* [Spring Tool Suite] (https://spring.io/tools)
+* JDK 1.8 +
+* [Apache Maven](https://maven.apache.org) 
+* [Apache Tomcat](https://tomcat.apache.org)
+* [Spring Tool Suite for Eclipse](https://spring.io/tools)
 
-Compile and run application
+Compile and run the application
 ----------------------------
 After you download the project in order to compile project and run the application the following operations must be performed.  
 
@@ -37,7 +37,7 @@ Alternatively, you can run the application using Maven Tomcat plugin:
 cd /d  d:\workspace\servlet-helloworld
 mvn tomcat7:run
 ```
-This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/helloworld/] (http://localhost:8000/helloworld/)
+This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/helloworld/](http://localhost:8000/helloworld/)
 
 
 ### Using Spring Tool Suite
@@ -49,3 +49,7 @@ To compile and run the project using STS you must perform the following steps:
  -  Select the folder where is located the `servlet-helloworld` project (e.g. `d:\workspace\servlet-helloworld`)
 * Run the project:
  - From the `Package Explorer` view select the  `servlet-helloworld` project, right click and select `Run As -> Run on Server`
+
+ References
+-----------
+ * [Java Platform, Enterprise Edition (Java EE) 8 - The Java EE Tutorial](https://javaee.github.io/tutorial/servlets.html)

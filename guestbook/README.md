@@ -1,7 +1,7 @@
 Simple GuestBook using Java Servlets 
 ====================================
 
-In this example is implemented a simple guestbook using Java Servlets. 
+In this example is implemented a simple _guestbook_ using Java Servlets. 
 The basic functionalities are the following:
 
 * View visitors messages
@@ -13,12 +13,12 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
-* [Apache Maven] (https://maven.apache.org) 
-* [Apache Tomcat] (https://tomcat.apache.org)
+* JDK 1.8
+* [Apache Maven](https://maven.apache.org) 
+* [Apache Tomcat](https://tomcat.apache.org)
 
 
-Compile and run application
+Compile and run the application
 ----------------------------
 After you download the project in order to compile project and run the application the following operations must be performed.  
 
@@ -43,7 +43,7 @@ Alternatively, you can run the application using Maven Tomcat plugin:
 cd /d  d:\workspace\guestbook
 mvn tomcat7:run
 ```
-This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/guestbook/] (http://localhost:8000/guestbook/)
+This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/guestbook/](http://localhost:8000/guestbook/)
 
 
 ### Using Spring Tool Souite
