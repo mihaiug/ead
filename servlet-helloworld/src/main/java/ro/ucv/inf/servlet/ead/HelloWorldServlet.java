@@ -9,7 +9,8 @@ import javax.servlet.http.*;
 
 public class HelloWorldServlet extends HttpServlet {
 
-  /**
+
+/**
    * Called by the server (via the service method) to allow a servlet to handle a GET request. 
    * 
    * @param request an HttpServletRequest object that contains the request the client has made of the servlet.
