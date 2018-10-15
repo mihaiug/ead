@@ -6,10 +6,12 @@ This repository contains the source code for applications presented at _Developi
 Software Requirements
 ---------------------
 
-* JDK 1.7 + 
+* JDK 1.8 
 * [Apache Maven](https://maven.apache.org) 
 * [Apache Tomcat](https://tomcat.apache.org)
 * [Spring Tool Suite](https://spring.io/tools)
+
+A small tutorial to setup the development environment is described [here](labs/SETUP.md).  
 
 Examples 
 --------
