@@ -23,7 +23,7 @@
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
 		
-		<server.http.port>8080</server.http.port>
+		<server.http.port>8000</server.http.port>
 	</properties>
 	
 	<dependencies>
