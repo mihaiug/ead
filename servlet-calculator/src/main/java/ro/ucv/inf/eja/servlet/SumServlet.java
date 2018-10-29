@@ -9,14 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SumServlet
+ * Servlet used to compute the sum between two numbers.
  */
 public class SumServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   public SumServlet() {
     super();
-
   }
 
   /**
@@ -27,15 +26,20 @@ public class SumServlet extends HttpServlet {
    * 
    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
    */
+  @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     response.setContentType("text/html");
     PrintWriter out = response.getWriter();
     float number1 = 0;
     float number2 = 0;
     float sum = 0;
-    StringBuffer errorMessage = new StringBuffer();
+    
+    // Gets the input parameters.
     String number1Param = request.getParameter("number1");
     String number2Param = request.getParameter("number2");
+    
+    // Validate the input parameters.
+    StringBuilder errorMessage = new StringBuilder();
     if (number1Param != null) {
       try {
         number1 = Float.parseFloat(number1Param);
@@ -43,7 +47,7 @@ public class SumServlet extends HttpServlet {
         errorMessage.append("Invalid value for 'number1' parameter: " + number1Param);
       }
     } else {
-      errorMessage.append("Missing number1 parameter.");
+      errorMessage.append("Missing 'number1' parameter.");
     }
     if (number2Param != null) {
       try {
@@ -52,7 +56,7 @@ public class SumServlet extends HttpServlet {
         errorMessage.append("Invalid value for 'number2' parameter: " + number2Param);
       }
     } else {
-      errorMessage.append("Missing number2 parameter.");
+      errorMessage.append("Missing 'number2' parameter.");
     }
 
     out.println("<html>");
@@ -79,6 +83,7 @@ public class SumServlet extends HttpServlet {
    * 
    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
    */
+  @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     doGet(request, response);
   }

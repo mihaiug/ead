@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Sum Calculator using JSPs</title>
+	<title>Sum Calculator using JSPs</title>
 </head>
 <body>
 
@@ -18,9 +17,12 @@
 	    float number1 = 0;
 	    float number2 = 0;
 	    float sum = 0;
-	    StringBuffer errorMessage = new StringBuffer();
+	    // Gets the input parameters.
 	    String number1Param = request.getParameter("number1");
 	    String number2Param = request.getParameter("number2");
+	    
+	    // Validate the input parameters.
+	    StringBuilder errorMessage = new StringBuilder();
 	    if (number1Param != null) {
 	      try {
 	        number1 = Float.parseFloat(number1Param);
@@ -28,7 +30,7 @@
 	        errorMessage.append("Invalid value for 'number1' parameter: " + number1Param);
 	      }
 	    } else {
-	      errorMessage.append("Missing number1 parameter.");
+	      errorMessage.append("Missing 'number1' parameter.");
 	    }
 	    if (number2Param != null) {
 	      try {
@@ -37,8 +39,9 @@
 	        errorMessage.append("Invalid value for 'number2' parameter: " + number2Param);
 	      }
 	    } else {
-	      errorMessage.append("Missing number2 parameter.");
-	    }
+	      errorMessage.append("Missing 'number2' parameter.");
+	    } 
+	    
 	    if (errorMessage.length() == 0) {
 	      sum = number1 + number2;
 	      out.println(number1 + " + " + number2 + " = " + sum);

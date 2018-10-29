@@ -8,11 +8,22 @@
 	<name>Servlet and JSP Sum Calculator</name>
 	
 	<properties>
+		<!-- Generic properties -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Servlet -->
+		
+		<servletapi.version>3.0.1</servletapi.version>
+		
 		<junit.version>3.8.1</junit.version>
 		
-		<servletapi.version>2.5</servletapi.version>
 		
+		<!-- Plug-in versions -->
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+		
+		<server.http.port>8000</server.http.port>
 	</properties>
 	
 	<dependencies>
@@ -24,15 +35,25 @@
 		</dependency>
 		<!-- for compile only, your container should have this -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
 			<version>${servletapi.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>${project.artifactId}</finalName>
+	<finalName>${project.artifactId}</finalName>
 		<plugins>
+			<!-- Set JDK Compiler Level -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
 			<!-- Apache Tomcat Plugin to allow running application with mvn tomcat7:run -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -40,7 +61,7 @@
 				<version>${tomcat7-maven-plugin.version}</version>
 				<configuration>
 					<path>/${project.artifactId}</path>
-					<port>8000</port>
+					<port>${server.http.port}</port>
 				</configuration>
 			</plugin>
 		</plugins>
