@@ -3,11 +3,14 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
+  
   <display-name>Hello World Web Application</display-name>
+ 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <display-name>Hello World Servlet</display-name>
     <servlet-name>HelloWorldServlet</servlet-name>
@@ -18,8 +21,8 @@
     <url-pattern>/HelloWorldServlet</url-pattern>
   </servlet-mapping>
   
-    <servlet>
-    <display-name>Hello World Servlet</display-name>
+  <servlet>
+    <display-name>Hello World Servlet with Parameters</display-name>
     <servlet-name>HelloWorldParamServlet</servlet-name>
     <servlet-class>ro.ucv.inf.servlet.ead.HelloWorldParamServlet</servlet-class>
   </servlet>
@@ -27,4 +30,5 @@
     <servlet-name>HelloWorldParamServlet</servlet-name>
     <url-pattern>/HelloWorldParamServlet</url-pattern>
   </servlet-mapping>
+
 </web-app>
