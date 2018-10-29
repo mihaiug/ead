@@ -13,9 +13,10 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
-* [Apache Maven] (https://maven.apache.org) 
-* [Apache Tomcat] (https://tomcat.apache.org)
+* JDK 1.8 +
+* [Apache Maven](https://maven.apache.org) 
+* [Apache Tomcat](https://tomcat.apache.org)
+* [Spring Tool Suite for Eclipse](https://spring.io/tools)
 
 
 Compile and run application
@@ -44,7 +45,7 @@ cd /d  d:\workspace\guestbook-jsp
 mvn tomcat7:run
 ```
 
-This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/guestbook-jsp/] (http://localhost:8000/guestbook-jsp/)
+This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/guestbook-jsp/](http://localhost:8000/guestbook-jsp/)
 
 
 

@@ -22,10 +22,11 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
-* MySQL 6 + or MariaDB Server
-* [Apache Maven] (https://maven.apache.org) 
-* [Apache Tomcat] (https://tomcat.apache.org)
+* JDK 1.8 +
+* [MySQL](https://dev.mysql.com/downloads/) or [MariaDB Server](https://mariadb.org/download/)
+* [Apache Maven](https://maven.apache.org) 
+* [Apache Tomcat](https://tomcat.apache.org)
+* [Spring Tool Suite for Eclipse](https://spring.io/tools)
 
 In order to run this application you must create a MySQL database called `guestbook` and import the `guestbook.sql` structure. Optionally, you can add a database user to connect to database.
 In our case we use default `root` without password. The database connection details can be changed from file `src/main/resources/config.properties`:
@@ -63,7 +64,7 @@ Alternatively, you can run the application using Maven Tomcat plugin:
 cd /d  d:\workspace\guestbook-db
 mvn tomcat7:run
 ```
-This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/guestbook-db/] (http://localhost:8000/guestbook-db/)
+This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/guestbook-db/](http://localhost:8000/guestbook-db/)
 
 
 ### Using Spring Tool Souite

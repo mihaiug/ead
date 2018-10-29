@@ -8,10 +8,10 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
-* [Apache Maven] (https://maven.apache.org) 
-* [Apache Tomcat] (https://tomcat.apache.org)
-* [Spring Tool Suite] (https://spring.io/tools)
+* JDK 1.8 +
+* [Apache Maven](https://maven.apache.org) 
+* [Apache Tomcat](https://tomcat.apache.org)
+* [Spring Tool Suite for Eclipse](https://spring.io/tools)
 
 Compile and run application
 ----------------------------
@@ -38,7 +38,7 @@ Alternatively, you can run the application using Maven Tomcat plugin:
 cd /d  d:\workspace\servlet-calculator
 mvn tomcat7:run
 ```
-This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/calculator/] (http://localhost:8000/calculator/)
+This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/calculator/](http://localhost:8000/calculator/)
 
 
 ### Using Spring Tool Suite

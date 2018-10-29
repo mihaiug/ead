@@ -24,3 +24,6 @@
 # Maven
 log/
 target/
+
+#Mark Down
+.*.md.html
