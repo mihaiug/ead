@@ -7,11 +7,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Guestbook JSP Web Application</name>
 	<description>Simpe GuestBook using Servlets and JSP pages</description>
-	<url>http://inf.ucv.ro/~mihaiug</url>
+	
+	<scm>
+		<url>https://github.com/mihaiug/ead/tree/master/guestbook-jsp</url>
+	</scm>
 	
 	<properties>
 		<!-- Generic properties -->
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	
 		<!-- Servlet -->

@@ -79,7 +79,7 @@ public class GuestBookServlet extends HttpServlet {
 		Date date = new Date();
 		
 		//TODO: Add parameters validation.
-		
+	
 		Comment comment = new Comment();
 		comment.setUserName(userName);
 		comment.setUserEmail(userEmail);
@@ -106,6 +106,7 @@ public class GuestBookServlet extends HttpServlet {
 		
 		out.println("<html>");
 		out.println("<body>");
+		out.println("<h1>Guestbook</h1>");
 		
 		out.println("<ul>");
 		for (Comment comment : comments) {

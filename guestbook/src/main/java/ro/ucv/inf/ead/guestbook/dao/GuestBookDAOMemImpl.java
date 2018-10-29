@@ -7,13 +7,12 @@ import ro.ucv.inf.ead.guestbook.model.Comment;
 
 /**
  * In Memory DAO Implementation.
- 
  */
 public class GuestBookDAOMemImpl implements GuestBookDAO {
 	/**
 	 * Keep the list of guestbook messages.
 	 */
-	private List<Comment> comments = new LinkedList<Comment>();
+	private List<Comment> comments = new LinkedList<>();
 
 	/**
 	 * The last comment id. It is used to generate unique ids.

@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import ro.ucv.inf.ead.guestbook.dao.GuestBookDAO;
 import ro.ucv.inf.ead.guestbook.model.Comment;
 
+/**
+ * Handle list comments operation.
+ *
+ */
 public class ListComments implements Command {
 
   /**
@@ -20,7 +24,6 @@ public class ListComments implements Command {
   }
 
   public String execute(HttpServletRequest request, HttpServletResponse response) {
-    System.out.println("List comments");
     List<Comment> comments = guestBookDao.getAllComments();
 
     request.setAttribute("comments", comments);

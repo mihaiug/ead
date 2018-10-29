@@ -5,6 +5,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import ro.ucv.inf.ead.guestbook.dao.GuestBookDAO;
 
+/**
+ * Handle remove a comment.
+ *
+ */
 public class DeleteComment implements Command {
 
   /**

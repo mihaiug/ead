@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import ro.ucv.inf.ead.guestbook.dao.GuestBookDAO;
 import ro.ucv.inf.ead.guestbook.model.Comment;
 
+
+/**
+ * Handle add a comment.
+ *
+ */
 public class AddComment implements Command {
 
   /**
@@ -33,6 +38,8 @@ public class AddComment implements Command {
       request.setAttribute("errorMessage", "Username is empty");
       error = true;
     }
+    
+    //TODO: Add more validations.
 
     if (!error) {
       Comment comment = new Comment();

@@ -5,7 +5,7 @@ import java.util.List;
 import ro.ucv.inf.ead.guestbook.model.Comment;
 
 /**
- * Data Access Objects Interface 
+ * Data Access Objects Interface.
  * 
  */
 public interface GuestBookDAO {

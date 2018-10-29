@@ -43,6 +43,7 @@ public class GuestBookServlet extends HttpServlet {
    * 
    * @param config a ServletConfig object containing the servlet's configuration and initialization parameters.
    */
+  @Override
   public void init(ServletConfig config) throws ServletException {
     try {
       // guestBookDao = new GuestBookDAOMemImpl(); //In memory data storage implementation.
@@ -65,6 +66,7 @@ public class GuestBookServlet extends HttpServlet {
    * 
    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
    */
+  @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     boolean logged = false;
     HttpSession session = request.getSession(true);
@@ -93,7 +95,8 @@ public class GuestBookServlet extends HttpServlet {
     }
     doListComments(session, request, response);
   }
-
+  
+  @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     doGet(request, response);
   }
@@ -113,6 +116,15 @@ public class GuestBookServlet extends HttpServlet {
     String message = request.getParameter("message");
     Date date = new Date();
 
+    // Validate input parameters.
+    if (userName == null || userName.trim().length() == 0) {
+        request.setAttribute("error", "User name can not be empty!");
+        return;
+    }
+    if (userEmail == null || userEmail.trim().length() == 0) {
+        request.setAttribute("error", "User email can not be empty!");
+        return;
+    }
     if (message == null || message.trim().length() == 0) {
       request.setAttribute("error", "Message can not be empty!");
       return;
@@ -191,7 +203,7 @@ public class GuestBookServlet extends HttpServlet {
     out.println("</ul>");
 
     // Display the add comment form.
-    out.print("<form>");
+    out.print("<form method='post'>");
     out.println("<input type='hidden' name='action' value='add'> <br>");
     out.println("Name: <input type='text' name='userName'> <br>");
     out.println("Email: <input type='text' name='userEmail'> <br>");
