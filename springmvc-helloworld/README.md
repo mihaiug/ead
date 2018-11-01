@@ -1,15 +1,15 @@
 Spring MVC - Hello World
 ==========================
-In this example is implemented a simple _"Hello World"_ using [Spring MVC] (https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html).
+In this example is implemented a simple _"Hello World"_ using [Spring MVC](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html).
 
 Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
 * JDK 1.7 +
-* [Apache Maven] (https://maven.apache.org) 
-* [Apache Tomcat] (https://tomcat.apache.org)
-* [Spring Tool Suite] (https://spring.io/tools)
+* [Apache Maven](https://maven.apache.org) 
+* [Apache Tomcat](https://tomcat.apache.org)
+* [Spring Tool Suite](https://spring.io/tools)
 
 Compile and run application
 ----------------------------
@@ -36,7 +36,7 @@ Alternatively, you can run the application using Maven Tomcat plugin:
 cd /d  d:\workspace\springmvc-helloworld
 mvn tomcat7:run
 ```
-This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/springmvc-helloworld/] (http://localhost:8000/springmvc-helloworld/).
+This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/springmvc-helloworld/](http://localhost:8000/springmvc-helloworld/).
 
 
 ### Using Spring Tool Suite

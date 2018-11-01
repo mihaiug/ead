@@ -66,4 +66,4 @@ In order to run application using Maven you can use the following command:
 ```bash
     mvn tomcat7:run
 ```
-This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/todo/] (http://localhost:8000/todo/)
+This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/todo/](http://localhost:8000/todo/)
