@@ -85,6 +85,7 @@ In order to install the Spring Tools Suite for Eclipse follow the next steps:
 2. Unpack the binary archive `spring-tool-suite-4-4.0.0.RELEASE-e4.9.0-win32.win32.x86_64.zip` to the folder you want to install, for example `d:\tools\sts-4.0.0.RELEASE`
 3. Launch the application `SpringToolSuite4.exe` located in `d:\tools\sts-4.0.0.RELEASE\bin` and perform the following additional configurations:
 * Install [Eclipse JST Server Adapters (Apache Tomcat, JOnAS, J2EE)](https://marketplace.eclipse.org/content/eclipse-jst-server-adapters-apache-tomcat-jonas-j2ee#group-details) in order to add support for Tomcat 8.x in STS 4
+* Install [Eclipse Java EE Developer Tools](https://marketplace.eclipse.org/content/eclipse-java-ee-developer-tools-0)
 * Add installed Tomcat 8.5 in STS servers configuration        
 
 How to set an Environment Variable
