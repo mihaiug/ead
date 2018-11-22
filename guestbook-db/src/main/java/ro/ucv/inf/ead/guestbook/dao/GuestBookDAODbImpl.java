@@ -43,7 +43,7 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
       PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query);
       preparedStatement.setLong(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
-      while (resultSet.next()) {
+      if (resultSet.next()) {
         comment = new Comment();
         comment.setId(resultSet.getLong("id"));
         comment.setUserName(resultSet.getString("userName"));
@@ -164,7 +164,7 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
       PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query);
       preparedStatement.setLong(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
-      while (resultSet.next()) {
+      if (resultSet.next()) {
         user = new User();
         user.setId(resultSet.getLong("id"));
         user.setName(resultSet.getString("name"));
@@ -193,7 +193,7 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
       PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query);
       preparedStatement.setString(1, email);
       ResultSet resultSet = preparedStatement.executeQuery();
-      while (resultSet.next()) {
+      if (resultSet.next()) {
         user = new User();
         user.setId(resultSet.getLong("id"));
         user.setName(resultSet.getString("name"));
@@ -222,7 +222,7 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
       preparedStatement.setString(1, email);
       preparedStatement.setString(2, password);
       ResultSet resultSet = preparedStatement.executeQuery();
-      while (resultSet.next()) {
+      if (resultSet.next()) {
         user = new User();
         user.setId(resultSet.getLong("id"));
         user.setName(resultSet.getString("name"));
