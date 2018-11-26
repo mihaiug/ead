@@ -19,11 +19,6 @@ public class StudentServiceImpl implements StudentService {
   }
 
   @Override
-  public List<Student> getAllEnrolledStudents() {
-    return studentRepository.findAll();
-  }
-
-  @Override
   public void enrollStudent(Student student) {
     if (student.getName() == null) {
       throw new IllegalArgumentException("Name cannot be null");
@@ -33,6 +28,11 @@ public class StudentServiceImpl implements StudentService {
       throw new IllegalArgumentException("Name cannot be null");
     }
     studentRepository.addStudent(student);
+  }
+
+  @Override
+  public List<Student> getAllEnrolledStudents() {
+    return studentRepository.findAll();
   }
 
   public void setStudentRepository(StudentRepository studentRepository) {
