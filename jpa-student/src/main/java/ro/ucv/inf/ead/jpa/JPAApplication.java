@@ -53,8 +53,7 @@ public class JPAApplication {
         phone.setType("Home");
         phone.setStudent(student2);
 
-        em.persist(phone);
-        // student2.getPhones().add(phone);
+        student2.getPhones().add(phone);
         em.persist(student2);
 
         em.getTransaction().commit();

@@ -106,6 +106,9 @@ public class Student {
     if(getAddress()!=null){
       sb.append(",").append(getAddress().toString());
     }
+    if (getPhones() != null) {
+    	sb.append(",").append(getPhones().toString());
+    }
     sb.append(")");
     return sb.toString();    
   }

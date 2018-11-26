@@ -30,9 +30,10 @@ public class JPAApplicationRead {
       System.out.println("List with all students:\n" +students);
 
       Course c = em.find(Course.class, 1L);
+      if (c != null) {
       System.out.println("students who follow the course " + c +":");
       System.out.println("\t" + c.getStudents());
-
+      }
       query = em.createQuery("SELECT s FROM Student s LEFT OUTER JOIN s.address a WHERE a.city=:city");
       query.setParameter("city", "Craiova");
       students = (List<Student>) query.getResultList();
