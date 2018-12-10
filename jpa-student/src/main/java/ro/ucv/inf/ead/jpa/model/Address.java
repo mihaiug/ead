@@ -14,10 +14,10 @@ public class Address {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
   private Long id;
-  
+
   @Column(name = "city")
   private String city;
-  
+
   @Column(name = "address")
   private String address;
 
@@ -47,12 +47,12 @@ public class Address {
   public void setAddress(String address) {
     this.address = address;
   }
-  
+
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("Address (");
     sb.append(id).append(", ");
-    sb.append(city).append(", ");;
+    sb.append(city).append(", ");
     sb.append(address);
     sb.append(")");
     return sb.toString();

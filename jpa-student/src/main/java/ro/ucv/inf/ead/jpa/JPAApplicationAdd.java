@@ -15,7 +15,7 @@ public class JPAApplicationAdd {
     EntityManager em = emf.createEntityManager();
 
     try {
-      System.out.println("Adding students - Begin");
+      System.out.println("Adding students - Begin Transaction");
       em.getTransaction().begin();
       Student student = new Student("Mihai", "Computer Science");
 
@@ -26,6 +26,7 @@ public class JPAApplicationAdd {
       em.persist(address);
       student.setAddress(address);
 
+      // Add few courses.
       Course course1 = new Course("Data Mining");
       em.persist(course1);
 
@@ -35,26 +36,28 @@ public class JPAApplicationAdd {
       student.getCourses().add(course1);
       student.getCourses().add(course2);
 
-      em.persist(student);
+      
 
       Phone phone1 = new Phone();
-      phone1.setNumber("222222");
-      phone1.setType("Vodafone");
+      phone1.setNumber("2222221");
+      phone1.setType("Vodafone");     
       phone1.setStudent(student);
-      em.persist(phone1);
-
+     // em.persist(phone1);
+      student.getPhones().add(phone1);
+      
+      em.persist(student);
       em.getTransaction().commit();
-      System.out.println("Adding students - End");
+      System.out.println("Adding students - End Transction");
 
     } catch (Exception e) {
-      System.err.println("Adding students - Error: " + e.getMessage());
+      System.err.println("Adding students - Rollback. Error: " + e.getMessage());
       // e.printStackTrace();
       em.getTransaction().rollback();
     } finally {
       em.close();
       emf.close();
     }
-   
+
   }
 
 }

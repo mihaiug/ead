@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,54 +26,60 @@ public class Student {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "name", nullable = false, unique = true, length=64)
+  @Column(name = "name", nullable = false, unique = true, length = 64)
   private String name;
-  
+
   @Column(name = "faculty", nullable = false)
   private String faculty;
-  
-  @OneToOne
-  @JoinColumn(name="addressId")
+
+  @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "addressId")
   private Address address;
-  
-  @OneToMany (mappedBy="student" , cascade = CascadeType.ALL, orphanRemoval = true)
-  private Collection<Phone> phones = new LinkedList<Phone>();
-  
-  @ManyToMany
+
+  @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Collection<Phone> phones = new LinkedList<>();
+
+  @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
   @JoinTable(
-      name="student_courses",
-      joinColumns={@JoinColumn(name="studentId", referencedColumnName="id")},
-      inverseJoinColumns={@JoinColumn(name="courseId", referencedColumnName="id")})
-  private Collection<Course> courses = new HashSet<Course>();
-  
+      name = "student_courses", 
+      joinColumns = { @JoinColumn(name = "studentId", referencedColumnName = "id") }, 
+      inverseJoinColumns = { @JoinColumn(name = "courseId", referencedColumnName = "id") }
+   )
+  private Collection<Course> courses = new HashSet<>();
+
   public Student() {
-    
+
   }
-  
+
   public Student(String name, String faculty) {
     this.name = name;
     this.faculty = faculty;
   }
-  
+
   public Long getId() {
     return id;
   }
+
   public void setId(Long id) {
     this.id = id;
   }
+
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
   }
+
   public String getFaculty() {
     return faculty;
   }
+
   public void setFaculty(String faculty) {
     this.faculty = faculty;
   }
-  
+
   public Address getAddress() {
     return address;
   }
@@ -80,7 +87,7 @@ public class Student {
   public void setAddress(Address address) {
     this.address = address;
   }
- 
+
   public Collection<Phone> getPhones() {
     return phones;
   }
@@ -88,7 +95,7 @@ public class Student {
   public void setPhones(Collection<Phone> phones) {
     this.phones = phones;
   }
-  
+
   public Collection<Course> getCourses() {
     return courses;
   }
@@ -97,19 +104,16 @@ public class Student {
     this.courses = courses;
   }
 
-  public String toString(){
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("Student (");
     sb.append(id).append(", ");
     sb.append(name).append(", ");
     sb.append(faculty);
-    if(getAddress()!=null){
-      sb.append(",").append(getAddress().toString());
-    }
-    if (getPhones() != null) {
-    	sb.append(",").append(getPhones().toString());
+    if (getAddress() != null) {
+      sb.append(", ").append(getAddress().toString());
     }
     sb.append(")");
-    return sb.toString();    
+    return sb.toString();
   }
 }

@@ -25,7 +25,7 @@ public class Course {
   private String name;
 
   @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
-  private Collection<Student> students = new HashSet<Student>();
+  private Collection<Student> students = new HashSet<>();
 
   public Course() {
   }

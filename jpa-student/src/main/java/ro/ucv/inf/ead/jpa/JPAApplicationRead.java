@@ -11,13 +11,13 @@ import ro.ucv.inf.ead.jpa.model.Course;
 import ro.ucv.inf.ead.jpa.model.Student;
 
 public class JPAApplicationRead {
-   
+
   public static void main(String[] args) {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("student-punit");
     EntityManager em = emf.createEntityManager();
     try {
       Student student = em.find(Student.class, 1L);
-      if (student != null){
+      if (student != null) {
         System.out.println("Found: " + student);
         System.out.println("\tPhones: " + student.getPhones());
         System.out.println("\tCourses: " + student.getCourses());
@@ -27,12 +27,14 @@ public class JPAApplicationRead {
 
       List<Student> students = (List<Student>) query.getResultList();
 
-      System.out.println("List with all students:\n" +students);
+      System.out.println("List of all students: " + students);
 
+      // Find course with id 1.
       Course c = em.find(Course.class, 1L);
       if (c != null) {
-      System.out.println("students who follow the course " + c +":");
-      System.out.println("\t" + c.getStudents());
+        em.refresh(c); // Required to force initialize lazy associations.
+        System.out.println("Students who follow the course " + c + ": ");
+        System.out.println("\t" + c.getStudents());
       }
       query = em.createQuery("SELECT s FROM Student s LEFT OUTER JOIN s.address a WHERE a.city=:city");
       query.setParameter("city", "Craiova");

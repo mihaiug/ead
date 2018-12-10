@@ -10,11 +10,11 @@ public class JPAApplicationEM {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("student-punit");
     EntityManager em = emf.createEntityManager();
     em.getTransaction().begin();
-    //Perform finds, execute queries
-    
-    //Update entities
+    // Perform finds, execute queries
+
+    // Update entities
     em.getTransaction().commit();
-  
+
     em.close();
     emf.close();
   }

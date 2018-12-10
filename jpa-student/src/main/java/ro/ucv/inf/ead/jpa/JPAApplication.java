@@ -13,30 +13,30 @@ import ro.ucv.inf.ead.jpa.model.Phone;
 import ro.ucv.inf.ead.jpa.model.Student;
 
 public class JPAApplication {
-   
-  
 
   public static void main(String[] args) {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("student-punit");
     EntityManager em = emf.createEntityManager();
+
     try {
       try {
         System.out.println("Adding students - Begin");
         em.getTransaction().begin();
-        Student student1 = new Student("Mihai", "Computer Science");
 
-        Address address1 = new Address();
-        address1.setCity("Craiova");
-        address1.setAddress("A.I. Cuza, 13");
-
-        em.persist(address1);
-        student1.setAddress(address1);
-
+        // Add few courses.
         Course course1 = new Course("Data Mining");
         em.persist(course1);
 
         Course course2 = new Course("Oriented Object Programming");
         em.persist(course2);
+
+        Address address1 = new Address();
+        address1.setCity("Craiova");
+        address1.setAddress("A.I. Cuza, 13");
+        em.persist(address1);
+
+        Student student1 = new Student("Mihai", "Computer Science");
+        student1.setAddress(address1);
 
         student1.getCourses().add(course1);
         student1.getCourses().add(course2);
@@ -44,9 +44,6 @@ public class JPAApplication {
         em.persist(student1);
 
         Student student2 = new Student("Maria", "Informatics");
-        Course c = new Course();
-        c.setId(course1.getId());
-        student2.getCourses().add(c);
 
         Phone phone = new Phone();
         phone.setNumber("222222");
@@ -56,25 +53,32 @@ public class JPAApplication {
         student2.getPhones().add(phone);
         em.persist(student2);
 
+        em.flush();
+
         em.getTransaction().commit();
+        // em.clear();
         System.out.println("Adding students - End");
 
       } catch (Exception e) {
         System.err.println("Adding students - Error: " + e.getMessage());
         e.printStackTrace();
         em.getTransaction().rollback();
+        System.exit(1);
       }
 
       Query query = em.createQuery("SELECT s FROM Student s");
 
       List<Student> students = (List<Student>) query.getResultList();
 
-      System.out.println(students);
+      System.out.println("List of all students: " + students);
 
-      Course c = em.find(Course.class, new Long(1));
-      System.out.println("students who follow the course " + c +":");
-      System.out.println("\t" + c.getStudents());
-
+      // Find course with id 1.
+      Course c = em.find(Course.class, 1L);
+      if (c != null) {
+        em.refresh(c); // Required to force initialize lazy associations.
+        System.out.println("Students who follow the course " + c + ": ");
+        System.out.println("\t" + c.getStudents());
+      }
       query = em.createQuery("SELECT s FROM Student s LEFT OUTER JOIN s.address a WHERE a.city=:city");
       query.setParameter("city", "Craiova");
       students = (List<Student>) query.getResultList();
