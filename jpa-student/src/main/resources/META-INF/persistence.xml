@@ -14,11 +14,11 @@
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
       <!-- Hibernate properties -->
-      <!-- property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" /-->
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect" />
-      <property name="hibernate.hbm2ddl.auto" value="update" />
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+      <!-- property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect" /-->
+      <property name="hibernate.hbm2ddl.auto" value="create" /> <!-- Use value="update" if you want to keep existing data -->
       <property name="hibernate.format_sql" value="true" />
-      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.show_sql" value="false" />
       <property name="hibernate.connection.release_mode" value="on_close" />
     </properties>
   </persistence-unit>
