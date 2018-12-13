@@ -17,25 +17,28 @@
 
 	<properties>
 		<!-- Generic properties -->
-		<java.version>1.6</java.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Spring -->
-		<spring-framework.version>4.3.3.RELEASE</spring-framework.version>
+		<spring-framework.version>5.1.2.RELEASE</spring-framework.version>
 
 		<!-- Persistence -->
-		<hibernate.version>5.2.3.Final</hibernate.version>
-		<mysql-connector-java.version>6.0.4</mysql-connector-java.version>
+		<hibernate.version>5.3.7.Final</hibernate.version>
+		<mysql-connector-java.version>6.0.6</mysql-connector-java.version>
 
 		<!-- Logging -->
-		<slf4j.version>1.7.21</slf4j.version>
-		<slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
 
 		<!-- Servlet -->
 		<servletapi.version>2.5</servletapi.version>
 		<jstl.version>1.2</jstl.version>
 
+		<!-- Maven plugins -->
+		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+		<tomcat.http.port>8000</tomcat.http.port>
 	</properties>
 
 	<dependencies>
@@ -107,6 +110,16 @@
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
+			<!-- Set JDK Compiler Level -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
 			<!-- Apache Tomcat Plugin to allow running application with mvn tomcat7:run -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -114,7 +127,7 @@
 				<version>${tomcat7-maven-plugin.version}</version>
 				<configuration>
 					<path>/${project.artifactId}</path>
-					<port>8000</port>
+					<port>${tomcat.http.port}</port>
 				</configuration>
 			</plugin>
 		</plugins>

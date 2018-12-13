@@ -6,7 +6,7 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
+* JDK 1.8 +
 * [Apache Maven](https://maven.apache.org) 
 * [Apache Tomcat](https://tomcat.apache.org)
 * [Spring Tool Suite](https://spring.io/tools)
@@ -23,7 +23,7 @@ mvn clean package
 ```
 This command produce the `helloworld.war` archive that can be deployed in any servlet container like Tomcat, Jetty, etc.  
 
-For example, to deploy this application into Tomcat Server just copy the `helloworld.war` in `tomcat-install-directory\webapps` and start the server using following command:
+For example, to deploy this application into Tomcat Server just copy the `springmvc-helloworld.war` in `tomcat-install-directory\webapps` and start the server using following command:
 
 ``` bat
 cd /d tomcat-install-directory\bin
