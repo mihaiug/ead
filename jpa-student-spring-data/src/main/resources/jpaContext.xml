@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd 
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+  <context:annotation-config />
+
+  <context:component-scan base-package="ro.ucv.inf.ead.jpa" />
+
+  <jpa:repositories base-package="ro.ucv.inf.ead.jpa.repository" />
+
+  <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+  <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="persistenceUnitName" value="student-punit" />
+    <property name="dataSource" ref="dataSource" />
+    <property name="jpaVendorAdapter">
+      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="true" />
+      </bean>
+    </property>
+		
+		<!-- JPA Vendor specific properties -->
+    <property name="jpaPropertyMap">
+      <map>
+        <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+        <entry key="hibernate.hbm2ddl.auto" value="create" /> <!-- Use value="update" if you want to keep existing data -->
+        <entry key="hibernate.format_sql" value="true" />
+        <entry key="hibernate.show_sql" value="false" />
+      </map>
+    </property>
+
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean>
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  
+  <!-- The database connection details -->
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://localhost:3306/jpastudent?autoReconnect=true" />
+    <property name="username" value="root" />
+    <property name="password" value="" />
+  </bean>
+
+</beans>

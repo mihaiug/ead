@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ro.ucv.inf.ead</groupId>
+  <artifactId>jpa-student-spring-data</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+
+  <name>Spring JPA Student Demo Application</name>
+  <description>A demo for JPA API using Spring Data Framework</description>
+
+  <organization>
+    <name>Department of Computer Science</name>
+    <url>http://inf.ucv.ro</url>
+  </organization>
+
+  <properties>
+    <!-- Generic properties -->
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Spring -->
+    <spring-framework.version>5.1.2.RELEASE</spring-framework.version>
+	<spring-data-jpa.version>2.1.3.RELEASE</spring-data-jpa.version>
+
+    <!-- Persistence -->
+    <hibernate.version>5.3.7.Final</hibernate.version>
+    <mysql-connector-java.version>6.0.6</mysql-connector-java.version>
+
+    <!-- Logging -->
+    <slf4j.version>1.7.25</slf4j.version>
+    <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
+
+    <!-- Maven plugins -->
+    <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+    <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+
+    <!-- The main class -->
+    <main.exec.classname>ro.ucv.inf.ead.jpa.JPAApplication</main.exec.classname>
+  </properties>
+
+  <dependencies>
+
+    <!-- JPA Dependencies -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>jta</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <!-- JDBC MySQL Connector -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
+    </dependency>
+    <!-- Logging with SLF4J & LogBack -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j-log4j12.version}</version>
+    </dependency>
+
+    <!-- Spring Framework -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring-framework.version}</version>
+    </dependency>
+
+    <!-- JPA Spring Framework Dependencies -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring-framework.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring-framework.version}</version>
+    </dependency>
+	
+	<!-- Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>			
+		</dependency>	
+  </dependencies>
+  <build>
+    <plugins>
+      <!-- Set JDK Compiler Level -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <!-- Plug-in used to run main class from command line using 'mvn exec:java' -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+        <configuration>
+          <mainClass>${main.exec.classname}</mainClass>
+          <cleanupDaemonThreads>false</cleanupDaemonThreads>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
