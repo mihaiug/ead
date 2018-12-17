@@ -4,30 +4,29 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import ro.ucv.inf.ead.todo.model.Task;
 
-
 public class TaskDTO {
   private Long id;
 
-  @NotBlank(message = "The task name can not be null")
+  @NotBlank(message = "The task name can not be empty")
   private String name;
-   
+
   private String description;
 
-  @DateTimeFormat(pattern="dd-MM-yyyy")
+  @DateTimeFormat(pattern = "dd-MM-yyyy")
   private Date dueDate;
-  
+
   private Task.Status status;
-  
+
   @NotNull
   private Long userId;
-  
+
   public TaskDTO() {
-   
+
   }
 
   public Long getId() {
@@ -76,5 +75,5 @@ public class TaskDTO {
 
   public void setUserId(Long userId) {
     this.userId = userId;
-  } 
+  }
 }

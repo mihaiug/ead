@@ -22,7 +22,7 @@
 	<jpa:repositories base-package="ro.ucv.inf.ead.todo.repository"/>
 
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-
+  
 	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="punit" />
 		<property name="dataSource" ref="dataSource" />
@@ -39,7 +39,7 @@
 				<!--entry key="hibernate.hbm2ddl.auto" value="create-drop" /-->
 				<entry key="hibernate.hbm2ddl.auto" value="update" />				
 				<entry key="hibernate.format_sql" value="true" />
-				<!--  entry key="hibernate.show_sql" value="true" /-->
+				<entry key="hibernate.show_sql" value="false" />
 			</map>
 		</property>
 
@@ -51,6 +51,7 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
+  <!-- The database connection details -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/db_todo?autoReconnect=true" />

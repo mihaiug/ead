@@ -10,11 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -24,17 +19,13 @@ public class User {
   @Column(name = "id")
   private Long id;
 
-  @NotNull(message = "The user name can not be null")
-  @Size(min = 1, message = "The user name can not be empty")
   @Column(name = "name", nullable = false, length = 64)
   private String name;
 
-  @NotBlank(message = "The user email can not be empty")
-  @Email(message = "The user email is invalid")
   @Column(name = "email", nullable = false, unique = true)
   private String email;
 
-  @Column(name = "password")
+  @Column(name = "password", nullable = false)
   private String password;
 
   @OneToMany(mappedBy = "user")
@@ -42,7 +33,7 @@ public class User {
 
   public User() {
   }
-  
+
   public User(Long id) {
     this.id = id;
   }

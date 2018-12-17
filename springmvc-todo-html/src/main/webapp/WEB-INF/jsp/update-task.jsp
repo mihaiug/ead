@@ -5,7 +5,7 @@
 	<form:form method="post" modelAttribute="task">		
 		<table>
 			<tr>
-				<td><form:label path="name">Name</form:label></td>
+				<td><form:label path="name">Name:</form:label></td>
 				<td><form:input path="name" /></td>
 				<td><form:errors path="name" cssClass="error" /></td>
 			</tr>
@@ -21,12 +21,12 @@
 			</tr>
 			
 			<tr>
-				<td><form:label path="dueDate">Due Date</form:label></td>
+				<td><form:label path="dueDate">Due Date (dd-MM-yyyy):</form:label></td>
 				<td><form:input path="dueDate" /></td>
 				<td><form:errors path="dueDate" cssClass="error" /></td>
 			</tr>
 			 <tr>
-				<td><form:label path="userId">Assigned User</form:label></td>
+				<td><form:label path="userId">Assigned User:</form:label></td>
 				<td>
 					<form:select path="userId" required="true">
 						<form:option value="">--Select--</form:option>	
@@ -36,7 +36,7 @@
 				<td><form:errors path="userId" cssClass="error" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="description">Description</form:label></td>
+				<td><form:label path="description">Description:</form:label></td>
 				<td><form:textarea path="description" /></td>
 				<td><form:errors path="description" cssClass="error" /></td>
 			</tr>

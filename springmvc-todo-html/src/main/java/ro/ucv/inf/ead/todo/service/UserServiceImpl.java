@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import ro.ucv.inf.ead.todo.exception.DuplicateRecordException;
 import ro.ucv.inf.ead.todo.exception.RecordNotFoundException;
@@ -23,8 +25,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User findUser(Long userId) {
-    User user = userRepository.findOne(userId);
-    return user;
+    return userRepository.findById(userId).orElse(null);
   }
 
   @Override
@@ -38,6 +39,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  @Transactional
   public User add(User user) {
     // Check if already exist a user with same email.
     User existingUser = userRepository.findByEmail(user.getEmail());
@@ -51,39 +53,39 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
+  @Transactional
   public User update(User user) {
-    User existingPerson = userRepository.findOne(user.getId());
-    if (existingPerson == null) {
+    User existingUser = userRepository.findById(user.getId()).orElse(null);
+    if (existingUser == null) {
       String errorMessage = "User with id " + user.getId() + " not found";
       logger.error(errorMessage);
       throw new RecordNotFoundException(errorMessage);
     }
-    
-    //Check if email was changed.
-    if (!existingPerson.getEmail().equals(user.getEmail())){
-      //Email changed, check again if new email already exists
-      if (userRepository.findByEmail(user.getEmail()) != null){
+
+    // Check if email was changed.
+    if (!existingUser.getEmail().equals(user.getEmail())) {
+      // Email changed, check again if new email already exists
+      if (userRepository.findByEmail(user.getEmail()) != null) {
         String errorMessage = "The new email addres already used by other user: " + user.getEmail();
         logger.error(errorMessage);
         throw new DuplicateRecordException(errorMessage);
       }
     }
-    
+    if (user.getPassword() == null) {
+      // if password is null keep existing password
+      user.setPassword(existingUser.getPassword());
+    }
+
     return userRepository.save(user);
   }
 
   @Override
+  @Transactional
   public void delete(Long userId) {
-    User user = userRepository.findOne(userId);
+    User user = userRepository.findById(userId).orElse(null);
     logger.debug("Delete user with id: " + userId);
     if (user != null) {
-      try {
-        userRepository.delete(userId);
-      } catch (DataIntegrityViolationException ex) {
-        String errorMessage = "Can not delete user because is assigned";
-        logger.error(errorMessage);
-        throw new DataIntegrityViolationException(errorMessage);
-      }
+      userRepository.delete(user);
     } else {
       String errorMessage = "User with id " + userId + " not found";
       logger.error(errorMessage);
