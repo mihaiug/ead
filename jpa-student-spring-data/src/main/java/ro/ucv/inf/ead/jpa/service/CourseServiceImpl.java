@@ -36,8 +36,7 @@ public class CourseServiceImpl implements CourseService {
   @Override
   @Transactional(readOnly = true)
   public Course findCourse(Long id) {
-    Course course = courseRepository.findById(id).orElse(null);
-    return course;
+    return courseRepository.findById(id).orElse(null);    
   }
 
   @Transactional(readOnly = true)
