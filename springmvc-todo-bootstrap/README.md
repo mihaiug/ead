@@ -5,7 +5,7 @@ Application Description
 -----------------------
 In this tutorial is implemented a web application that keeps the list of tasks assigned to a set of users.
 
-Each _task_ is associated with a user and is defined by the following characteristics:
+Each _task_ is associated with a _user_ and is defined by the following characteristics:
 
 * _Task Name_ - a short task description;
 * _Task Due Date_ - the date when task must be completed;
@@ -17,7 +17,7 @@ Each _task_ is associated with a user and is defined by the following characteri
 * _Assigned user_ - the task responsible person.
 
 
-The users are characterized by the following atrributes:
+A _user_ is characterized by the following attributes:
 
 * _Name_ - the user name;
 * _Email_ - the user email;
@@ -34,13 +34,13 @@ The application must provide the following operations:
 Technologies
 ------------
 
-* Spring 4.3.3.RELEASE
-* Spring MVC 4.3.3.RELEASE
+* Spring 5.1.2.RELEASE
+* Spring MVC 5.1.2.RELEASE
 * JPA 2.1
 * Bootstrap 3
 * JSP 
 * JSTL 1.2
-* JDK 1.7
+* JDK 1.8
 * MySQL
 * Spring Tool Suite 
 * Maven 3

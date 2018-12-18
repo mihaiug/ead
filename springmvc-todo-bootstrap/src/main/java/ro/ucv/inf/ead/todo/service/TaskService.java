@@ -9,7 +9,7 @@ public interface TaskService {
   public Task findTask(Long taskId);
 
   public List<Task> findAllTasks();
-  
+
   public List<Task> findUserTasks(Long userId);
 
   public Task add(Task task);

@@ -35,7 +35,7 @@
 	            <div class="form-group col-md-12 ${status.error ? 'has-error' : ''}">
 	                <label class="control-label col-md-3" for="password">Password</label>
 	                <div class="col-md-7">
-	                    <form:input type="text" path="password" id="password" class="form-control input-sm"/>
+	                    <form:password path="password" id="password" class="form-control input-sm"/>
 	                    <form:errors path="password" cssStyle="help-inline"/>	                 
 	                </div>
 	            </div>

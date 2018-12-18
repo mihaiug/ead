@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ro.ucv.inf.ead</groupId>
 	<artifactId>todo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<packaging>war</packaging>
 
-	<name>Todo Web Application</name>
-	<description>Todo List Application</description>
+	<name>ToDo List - Spring MVC Web application</name>
+	<description>ToDo List - Spring MVC Web application (Bootstrap HTML Interface Version)</description>
 
 	<organization>
 		<name>Department of Computer Science</name>
@@ -17,21 +17,21 @@
 
 	<properties>
 		<!-- Generic properties -->
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Spring -->
-		<spring-framework.version>4.3.3.RELEASE</spring-framework.version>
-		<spring-data-jpa.version>1.10.5.RELEASE</spring-data-jpa.version>
-		<spring-security.version>4.1.3.RELEASE</spring-security.version>
+		<spring-framework.version>5.1.2.RELEASE</spring-framework.version>
+		<spring-data-jpa.version>2.1.3.RELEASE</spring-data-jpa.version>
+		<spring-security.version>5.1.2.RELEASE</spring-security.version>
 
 		<!-- Persistence -->
-		<hibernate.version>5.2.3.Final</hibernate.version>
-		<mysql-connector-java.version>6.0.4</mysql-connector-java.version>
+		<hibernate.version>5.3.7.Final</hibernate.version>
+		<mysql-connector-java.version>6.0.6</mysql-connector-java.version>
 
 		<!-- Logging -->
-		<slf4j.version>1.7.21</slf4j.version>
-		<slf4j-log4j12.version>1.7.21</slf4j-log4j12.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
 
 		<!-- Servlet -->
 		<servletapi.version>2.5</servletapi.version>
@@ -39,7 +39,7 @@
 		<jsp-api.version>2.1</jsp-api.version>
 
 		<!-- Hibernate's Bean Validation - Needed for form validation -->
-		<hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
+		<hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
 
 		<!-- Maven plugins -->
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>

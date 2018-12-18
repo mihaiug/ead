@@ -12,13 +12,12 @@ import ro.ucv.inf.ead.todo.model.User;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
-    @Query("select p from User p where p.name = :name")
-    User findByName(@Param("name") String name);
-    
-    
-    User findByEmail(@Param("email") String email);
-    
-    @Query("SELECT p FROM User p WHERE p.name LIKE :searchTerm OR p.email LIKE :searchTerm")
-    public List<User> search(@Param("searchTerm") String searchTerm);
-    
+  @Query("select p from User p where p.name = :name")
+  User findByName(@Param("name") String name);
+
+  User findByEmail(@Param("email") String email);
+
+  @Query("SELECT p FROM User p WHERE p.name LIKE :searchTerm OR p.email LIKE :searchTerm")
+  public List<User> search(@Param("searchTerm") String searchTerm);
+
 }
