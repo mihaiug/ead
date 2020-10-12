@@ -16,7 +16,7 @@
 		<!-- Servlet API -->
 		<servletapi.version>3.0.1</servletapi.version>
 
-		<junit.version>3.8.1</junit.version>
+		<junit.version>4.13.1</junit.version>
 
 
 		<!-- Plug-in versions -->
