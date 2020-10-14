@@ -23,7 +23,7 @@
 		<!-- Servlet -->	
 		<servletapi.version>3.0.1</servletapi.version>
 		
-		<junit.version>3.8.1</junit.version>
+		<junit.version>4.13.1</junit.version>
 		
 		
 		<!-- Plug-in versions -->
@@ -37,7 +37,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- For compile only, your container should have this -->
