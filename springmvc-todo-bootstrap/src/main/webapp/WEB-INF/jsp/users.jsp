@@ -31,9 +31,9 @@
     <tbody>
 	    <c:forEach items="${users}" var="user">
 	    <tr>
-    		<td>${user.id}</td>
-    		<td>${user.name}</td>
-    		<td>${user.email}</td>
+    		<td><c:out value="${user.id}"/></td>
+    		<td><c:out value="${user.name}"/></td>
+    		<td><c:out value="${user.email}"/></td>
     		<td><a href="<c:url value='/user/update?id=${user.id}'/>">Edit</a> | <a href="<c:url value='/user/delete?id=${user.id}'/>">Delete</a></td>
     	</tr>    	
 	    </c:forEach>

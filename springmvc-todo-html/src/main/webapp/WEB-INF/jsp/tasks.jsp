@@ -3,11 +3,11 @@
 
     <h1>List of tasks</h1>
     <c:if test="${not empty message}">
-	 <div class="infoblock">${message}</div>
+	 <div class="infoblock"><c:out value="${message}"/></div>
 	</c:if>
 	
     <c:if test="${not empty errorMessage}">
-	 <div class="errorblock">${errorMessage}</div>
+	 <div class="errorblock"><c:out value="${errorMessage}"/></div>
 	</c:if>
 	
     <div><a href="<c:url value='/task/add'/>">Add New Task</a> | <a href="<c:url value='/users'/>">View Users</a></div>
@@ -24,11 +24,11 @@
 	    <c:forEach items="${tasks}" var="task">
 	    <tr>
     		<td>${task.id}</td>
-    		<td>${task.name}</td>
-    		<td>${task.status.displayName}</td>
-    		<td>${task.user.name}</td>
-    		<td>${task.dueDate}</td>
-    		<td>${task.description}</td>
+    		<td><c:out value="${task.name}"/></td>
+    		<td><c:out value="${task.status.displayName}"/></td>
+    		<td><c:out value="${task.user.name}"/></td>
+    		<td><c:out value="${task.dueDate}"/></td>
+    		<td><c:out value="${task.description}"/></td>
     		<td><a href="<c:url value='/task/update?id=${task.id}'/>">Edit</a></td>
     		<td><a href="<c:url value='/task/delete?id=${task.id}'/>">Delete</a></td>
     	</tr>    	
