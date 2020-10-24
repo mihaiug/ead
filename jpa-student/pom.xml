@@ -22,15 +22,15 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Persistence -->
-    <hibernate.version>5.3.7.Final</hibernate.version>
-    <mysql-connector-java.version>6.0.6</mysql-connector-java.version>
+    <hibernate.version>5.4.22.Final</hibernate.version>
+    <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
 
     <!-- Logging -->
     <slf4j.version>1.7.25</slf4j.version>
     <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
 
     <!-- Maven plugins -->
-    <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
 
     <!-- The main class -->
@@ -39,7 +39,8 @@
   </properties>
 
   <dependencies>
-    <!-- JPA Dependecies -->
+
+    <!-- JPA Dependencies -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
