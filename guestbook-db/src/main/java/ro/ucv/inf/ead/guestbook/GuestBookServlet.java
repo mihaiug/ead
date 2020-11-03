@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ro.ucv.inf.ead.guestbook.dao.GuestBookDAO;
-import ro.ucv.inf.ead.guestbook.dao.GuestBookDAODbImpl;
-import ro.ucv.inf.ead.guestbook.dao.GuestBookDAOMemImpl;
+import ro.ucv.inf.ead.guestbook.dao.*;
 import ro.ucv.inf.ead.guestbook.model.Comment;
 import ro.ucv.inf.ead.guestbook.model.User;
 
@@ -183,7 +181,7 @@ public class GuestBookServlet extends HttpServlet {
     boolean logged = false;
     if ((user = (User) session.getAttribute("user")) != null) {
       logged = true;
-      out.println("<div style='text-align:right'> Welcome: " + user.getName() + " | <a href='" + request.getContextPath() + "?action=logout'>Logout</a></div>");
+      out.println("<div style='text-align:right'> Welcome: " + user.getName() + " | <a href='" + request.getRequestURI() + "?action=logout'>Logout</a></div>");
     } else {
       out.println("<div style='text-align:right'><a href='login.html'>Login</a></div>");
     }
@@ -203,7 +201,7 @@ public class GuestBookServlet extends HttpServlet {
     out.println("</ul>");
 
     // Display the add comment form.
-    out.print("<form method='post'>");
+    out.print("<form action='" + request.getRequestURI() + "' method='post'>");
     out.println("<input type='hidden' name='action' value='add'> <br>");
     out.println("Name: <input type='text' name='userName'> <br>");
     out.println("Email: <input type='text' name='userEmail'> <br>");
