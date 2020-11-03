@@ -165,7 +165,7 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
+* JDK 1.8 +
 * [Apache Maven](https://maven.apache.org) 
 * [Spring Tool Suite](https://spring.io/tools)
 
