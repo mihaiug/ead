@@ -16,7 +16,7 @@ import ro.ucv.inf.ead.guestbook.dao.GuestBookDAOMemImpl;
 import ro.ucv.inf.ead.guestbook.model.Comment;
 
 /**
- * Servlet implementation class GuestBookServlet
+ * Servlet implementation class GuestBookServlet.
  */
 public class GuestBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -118,7 +118,7 @@ public class GuestBookServlet extends HttpServlet {
 		
 		//Display the add comment form.
 		out.print("<form>");
-		out.println("<input type='hidden' name='action' value='add'> <br>");
+		out.println("<input type='hidden' name='action' value='add' method='post'> <br>");
 		out.println("Name: <input type='text' name='userName'> <br>");
 		out.println("Email: <input type='text' name='userEmail'> <br>");
 		out.println("Message:<br> <textarea name='message' rows='4' cols='50'></textarea> <br>");
