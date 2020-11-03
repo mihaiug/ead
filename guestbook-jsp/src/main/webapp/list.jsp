@@ -24,21 +24,26 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${comments}" var="comment">
+				<%-- Create variable deleteUrl containing the URL for deleting a comment--%>
+				<c:url value="/GuestBook" var="deleteUrl">
+					<c:param name="action" value="delete"/>
+					<c:param name="id" value="${comment.id}"/>
+				</c:url>
 				<tr>
 					<td><c:out value="${comment.id}" /></td>
 					<td><c:out value="${comment.date}" /></td>
 					<td><c:out value="${comment.userName}" /></td>
 					<td><c:out value="${comment.message}" /></td>
-					<td><a	href="GuestBook?action=delete&id=<c:out value="${comment.id }"/>">Delete</a></td>
+					<td><a	href="${deleteUrl}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	
 	<p>
-		Add new message:
-		<form action="GuestBook" method="post">
-		<input type="hidden" name="action" value="add"> <br/>
+		Add new message:	
+		<form action="<c:url value="/GuestBook"/>" method="post">
+		<input type="hidden" name="action" value="add"> <br>
 		Name: <input type='text' name='userName'> <br>
 		Email: <input type='text' name='userEmail'> <br>
 		Message: <br>
