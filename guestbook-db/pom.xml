@@ -7,32 +7,40 @@
 	
 	<packaging>war</packaging>
 	
-	<name>Guestbook JSP Webapp</name>
+	<name>Guestbook Servlet Webapp </name>
 	<description>A guestbook with authentication implementation using JSPs</description>
 	
 	<organization>
 		<name>Department of Computer Science</name>
 		<url>http://inf.ucv.ro</url>
 	</organization>
-	
+	<scm>
+		<url>https://github.com/mihaiug/ead/tree/master/guestbook-db</url>
+	</scm>
+		
 	<properties>
-		<junit.version>4.13.1</junit.version>
-		<servletapi.version>2.5</servletapi.version>
-		<mysql.version>6.0.4</mysql.version>
+		<!-- Generic properties -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- Servlet -->
+		<servletapi.version>3.1.0</servletapi.version>
+
+		<!-- MySQL JDBC Driver version -->
+		<mysql.version>8.0.22</mysql.version>
+		
+		<!-- Maven Plugin versions -->
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+		
+		<server.http.port>8000</server.http.port>
 	</properties>
 	
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
 		<!-- For compile only, your container should have this -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
+			<artifactId>javax.servlet-api</artifactId>
 			<version>${servletapi.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -48,6 +56,16 @@
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
+			<!-- Set JDK Compiler Level -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
 			<!-- Apache Tomcat Plugin to allow running application with mvn tomcat7:run -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -55,7 +73,7 @@
 				<version>${tomcat7-maven-plugin.version}</version>
 				<configuration>
 					<path>/${project.artifactId}</path>
-					<port>8000</port>
+					<port>${server.http.port}</port>
 				</configuration>
 			</plugin>
 		</plugins>
