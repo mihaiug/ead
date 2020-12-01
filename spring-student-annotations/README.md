@@ -63,7 +63,7 @@ public interface StudentRepository {
 
 An implementation of this interface that store information in a simple list in memory is the following:
 
-``` java
+```java
 @Repository("studentRepository")
 public class StudentRepositoryImpl implements StudentRepository {
      
@@ -101,7 +101,8 @@ public interface StudentService {
 ```
 
 An implementation of this interface is the following:
-``` java
+
+```java
 @Service("studentService")
 public class StudentServiceImpl implements StudentService {
   
@@ -129,7 +130,6 @@ public class StudentServiceImpl implements StudentService {
   public List<Student> getAllEnrolledStudents() {
     return studentRepository.findAll();
   }
-  
 
   public void setStudentRepository(StudentRepository studentRepository) {
     this.studentRepository = studentRepository;
@@ -158,7 +158,6 @@ The Spring bean configuration file `src/main/resources/applicationContext.xml` d
 	<context:component-scan base-package="ro.ucv.inf.ead.spring" />
 
 </beans>
-
 ```
 
 Requirements
@@ -177,4 +176,4 @@ To compile and run the project using STS you must perform the following steps:
  - `File -> Import -> Import Existing Maven Projects`
  -  Select the folder where is located the `spring-student-annotations` project (e.g. `d:\workspace\spring-student-annotations`)
 * Run the project:
- - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application` or `ro.ucv.inf.ead.spring.AplicationConstr` cass from the `spring-student-annotations` project, right click and select `Run As -> Java Application`
+ - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application` or `ro.ucv.inf.ead.spring.AplicationConstr` class from the `spring-student-annotations` project, right click and select `Run As -> Java Application`

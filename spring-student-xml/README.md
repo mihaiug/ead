@@ -42,7 +42,6 @@ public class Student {
   }
  
 }
-
 ```
 
 Repository
@@ -63,7 +62,7 @@ public interface StudentRepository {
 
 An implementation of this interface that store information in a simple list in memory is the following:
 
-``` java
+```java
 public class StudentRepositoryImpl implements StudentRepository {
 
   List<Student> students = new LinkedList<Student>();
@@ -98,7 +97,8 @@ public interface StudentService {
 ```
 
 An implementation of this interface is the following:
-``` java
+
+```java
 public class StudentServiceImpl implements StudentService {
 
   private StudentRepository studentRepository;
@@ -133,7 +133,6 @@ public class StudentServiceImpl implements StudentService {
     this.studentRepository = studentRepository;
   }
 }
-
 ```
 
 Spring configuration file
@@ -153,14 +152,13 @@ The Spring bean configuration file `src/main/resources/applicationContext.xml` d
   </bean>
 
 </beans>
-
 ```
 
 Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.7 +
+* JDK 1.8 +
 * [Apache Maven](https://maven.apache.org) 
 * [Spring Tool Suite](https://spring.io/tools)
 
@@ -172,4 +170,4 @@ To compile and run the project using STS you must perform the following steps:
  - `File -> Import -> Import Existing Maven Projects`
  -  Select the folder where is located the `spring-student-xml` project (e.g. `d:\workspace\spring-student-xml`)
 * Run the project:
- - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application` or `ro.ucv.inf.ead.spring.AplicationConstr` cass from the `spring-student-xml` project, right click and select `Run As -> Java Application`
+ - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application` or `ro.ucv.inf.ead.spring.AplicationConstr` class from the `spring-student-xml` project, right click and select `Run As -> Java Application`

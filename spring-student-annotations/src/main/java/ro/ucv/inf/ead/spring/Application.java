@@ -13,9 +13,10 @@ public class Application {
 
     ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");      
     StudentService studentService = appContext.getBean("studentService", StudentService.class);
-    studentService.enrollStudent(new Student("Mihai", "Informatica"));
-    studentService.enrollStudent(new Student("Maria", "Informatica"));
-    System.out.println(studentService.getAllEnrolledStudents());
+    studentService.enrollStudent(new Student("Mihai", "Informatics"));
+    studentService.enrollStudent(new Student("Maria", "Informatics"));
+    
+    System.out.println("All enrolled students: " + studentService.getAllEnrolledStudents());
     
  }
  
