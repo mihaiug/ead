@@ -3,10 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean name="studentRepository"  class="ro.ucv.inf.ead.spring.repository.StudentRepositoryImpl" scope="singleton" />
-
+     
+  <bean name="studentRepositoryMem"  class="ro.ucv.inf.ead.spring.repository.StudentRepositoryImpl" scope="singleton" />
+    
   <bean name="studentService" class="ro.ucv.inf.ead.spring.service.StudentServiceImpl">
-    <property name="studentRepository" ref="studentRepository" />
+    <property name="studentRepository" ref="studentRepositoryMem" />
   </bean>
 
 </beans>

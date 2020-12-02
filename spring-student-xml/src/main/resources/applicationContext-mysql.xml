@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean name="studentRepositoryDb"  class="ro.ucv.inf.ead.spring.repository.StudentRepositoryDbImpl" scope="singleton" >
+    <constructor-arg  index="0"  ref="dataSource"/>
+   </bean>
+
+   <!-- Initialization for data source -->
+   <bean id="dataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name = "driverClassName" value = "com.mysql.cj.jdbc.Driver"/>
+      <property name = "url" value = "jdbc:mysql://localhost:3306/db_student"/>
+      <property name = "username" value = "root"/>
+      <property name = "password" value = ""/>
+   </bean>
+   
+  <bean name="studentService" class="ro.ucv.inf.ead.spring.service.StudentServiceImpl">
+    <property name="studentRepository" ref="studentRepositoryDb" />
+  </bean>
+
+</beans>
+

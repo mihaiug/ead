@@ -1,88 +1,102 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ro.ucv.inf.ead</groupId>
-	<artifactId>spring-student-xml</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ro.ucv.inf.ead</groupId>
+  <artifactId>spring-student-xml</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
 
-	<packaging>jar</packaging>
+  <packaging>jar</packaging>
 
-	<name>Student Enrollment System</name>
-	<description>A demo application for Spring Dependency Injection using XML configuration file</description>
+  <name>Student Enrollment System</name>
+  <description>A demo application for Spring Dependency Injection using XML configuration file</description>
 
-	<organization>
-		<name>Department of Computer Science</name>
-		<url>http://inf.ucv.ro</url>
-	</organization>
+  <organization>
+    <name>Department of Computer Science</name>
+    <url>http://inf.ucv.ro</url>
+  </organization>
 
-	<properties>
+  <properties>
 
-		<!-- Generic properties -->
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	
-		<!-- Spring -->
-		<spring-framework.version>5.2.9.RELEASE</spring-framework.version>
+    <!-- Generic properties -->
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- Logging -->
-		<logback.version>1.0.13</logback.version>
-		<slf4j.version>1.7.5</slf4j.version>
+    <!-- Spring -->
+    <spring-framework.version>5.2.9.RELEASE</spring-framework.version>
 
-		<!-- Test -->
-		<junit.version>4.13.1</junit.version>
-		
-		<!-- Maven plugins -->
-		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>	
-		
-		<!-- The main class -->
-		<main.exec.classname>ro.ucv.inf.ead.spring.Application</main.exec.classname>
+    <!-- MySQL JDBC Driver version -->
+    <mysql.version>8.0.22</mysql.version>
+    
+    <!-- Logging -->
+    <logback.version>1.0.13</logback.version>
+    <slf4j.version>1.7.5</slf4j.version>
 
-	</properties>
+    <!-- Test -->
+    <junit.version>4.13.1</junit.version>
 
-	<dependencies>
-		<!-- Spring Framework -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring-framework.version}</version>
-		</dependency>
+    <!-- Maven plugins -->
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
 
-		<!-- Logging with SLF4J & LogBack -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-	</dependencies>
-	<build>
-		<plugins>
-			<!-- Set JDK Compiler Level -->
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
-			
-			<!-- Plug-in used to run main class from command line using 'mvn exec:java'  -->
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>${exec-maven-plugin.version}</version>
-				<configuration>
-					<mainClass>${main.exec.classname}</mainClass>
-				</configuration>
-			</plugin>			
-		</plugins>
-	</build>
+    <!-- The main class -->
+    <main.exec.classname>ro.ucv.inf.ead.spring.Application</main.exec.classname>
+
+  </properties>
+
+  <dependencies>
+    <!-- Spring Framework -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring-framework.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring-framework.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+    <!-- Logging with SLF4J & LogBack -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <!-- Set JDK Compiler Level -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <!-- Plug-in used to run main class from command line using 'mvn exec:java' -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+        <configuration>
+          <mainClass>${main.exec.classname}</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
