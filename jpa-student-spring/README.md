@@ -5,8 +5,14 @@ This tutorial shows how can be used JPA from Spring Framework and implements bas
 
 Database configuration
 ----------------------
-In order to run this application you must create a MySQL database called `jpastudent` and add a database user to connect to database.
-In our case we use default `root` without password. The database connection details can be changed from file `src/main/resources/jpaContext.xml`:
+In order to run this application you must create a MySQL database called `jpastudent`:
+
+```sql
+CREATE DATABASE jpastudent CHARACTER SET utf8 COLLATE utf8_bin;
+```
+Optionally, you can add a database user to connect to database. In our case we use default `root` without password. 
+
+The database connection details can be changed from file `src/main/resources/jpaContext.xml`:
 
 ```xml 
 <!-- The database connection details -->
