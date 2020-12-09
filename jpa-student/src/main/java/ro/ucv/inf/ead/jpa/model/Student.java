@@ -1,8 +1,7 @@
 package ro.ucv.inf.ead.jpa.model;
 
-import java.util.Collection;
+import java.util.Set;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,99 +19,99 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "students")
 public class Student {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
 
-  @Column(name = "name", nullable = false, unique = true, length = 64)
-  private String name;
+	@Column(name = "name", nullable = false, unique = true, length = 64)
+	private String name;
 
-  @Column(name = "faculty", nullable = false)
-  private String faculty;
+	@Column(name = "faculty", nullable = false)
+	private String faculty;
 
   @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-  @JoinColumn(name = "addressId")
-  private Address address;
+	@JoinColumn(name = "addressId")
+	private Address address;
 
-  @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-  private Collection<Phone> phones = new LinkedList<>();
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Phone> phones = new HashSet<>();
 
-  @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-  @JoinTable(
-      name = "student_courses", 
-      joinColumns = { @JoinColumn(name = "studentId", referencedColumnName = "id") }, 
-      inverseJoinColumns = { @JoinColumn(name = "courseId", referencedColumnName = "id") }
-   )
-  private Collection<Course> courses = new HashSet<>();
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(
+			name = "student_courses", 
+			joinColumns = { @JoinColumn(name = "studentId", referencedColumnName = "id") }, 
+			inverseJoinColumns = { @JoinColumn(name = "courseId", referencedColumnName = "id") }
+	)
+	private Set<Course> courses = new HashSet<>();
 
-  public Student() {
+	public Student() {
 
-  }
+	}
 
-  public Student(String name, String faculty) {
-    this.name = name;
-    this.faculty = faculty;
-  }
+	public Student(String name, String faculty) {
+		this.name = name;
+		this.faculty = faculty;
+	}
 
-  public Long getId() {
-    return id;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  public String getName() {
-    return name;
-  }
+	public String getName() {
+		return name;
+	}
 
-  public void setName(String name) {
-    this.name = name;
-  }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-  public String getFaculty() {
-    return faculty;
-  }
+	public String getFaculty() {
+		return faculty;
+	}
 
-  public void setFaculty(String faculty) {
-    this.faculty = faculty;
-  }
+	public void setFaculty(String faculty) {
+		this.faculty = faculty;
+	}
 
-  public Address getAddress() {
-    return address;
-  }
+	public Address getAddress() {
+		return address;
+	}
 
-  public void setAddress(Address address) {
-    this.address = address;
-  }
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
-  public Collection<Phone> getPhones() {
-    return phones;
-  }
+	public Set<Phone> getPhones() {
+		return phones;
+	}
 
-  public void setPhones(Collection<Phone> phones) {
-    this.phones = phones;
-  }
+	public void setPhones(Set<Phone> phones) {
+		this.phones = phones;
+	}
 
-  public Collection<Course> getCourses() {
-    return courses;
-  }
+	public Set<Course> getCourses() {
+		return courses;
+	}
 
-  public void setCourses(Collection<Course> courses) {
-    this.courses = courses;
-  }
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
+	}
 
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("Student (");
-    sb.append(id).append(", ");
-    sb.append(name).append(", ");
-    sb.append(faculty);
-    if (getAddress() != null) {
-      sb.append(", ").append(getAddress().toString());
-    }
-    sb.append(")");
-    return sb.toString();
-  }
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Student (");
+		sb.append(id).append(", ");
+		sb.append(name).append(", ");
+		sb.append(faculty);
+		if (getAddress() != null) {
+			sb.append(", ").append(getAddress().toString());
+		}
+		sb.append(")");
+		return sb.toString();
+	}
 }

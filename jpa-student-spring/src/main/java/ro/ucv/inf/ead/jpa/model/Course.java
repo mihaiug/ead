@@ -1,7 +1,7 @@
 package ro.ucv.inf.ead.jpa.model;
 
-import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +25,7 @@ public class Course {
   private String name;
 
   @ManyToMany(mappedBy = "courses", fetch = FetchType.LAZY)
-  private Collection<Student> students = new HashSet<>();
+  private Set<Student> students = new HashSet<>();
 
   public Course() {
   }
@@ -50,11 +50,11 @@ public class Course {
     this.name = name;
   }
 
-  public Collection<Student> getStudents() {
+  public Set<Student> getStudents() {
     return students;
   }
 
-  public void setStudents(Collection<Student> students) {
+  public void setStudents(Set<Student> students) {
     this.students = students;
   }
 
