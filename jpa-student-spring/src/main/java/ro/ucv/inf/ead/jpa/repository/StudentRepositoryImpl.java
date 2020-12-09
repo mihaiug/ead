@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -25,9 +25,9 @@ public class StudentRepositoryImpl implements StudentRepository {
   }
 
   public Student findByName(String name) {
-    Query query = em.createQuery("SELECT s FROM Student s  WHERE s.name = :name");
+    TypedQuery<Student> query = em.createQuery("SELECT s FROM Student s  WHERE s.name = :name", Student.class);
     query.setParameter("name", name);
-    List<Student> students = (List<Student>) query.getResultList();
+    List<Student> students = query.getResultList();
     if (students.size() > 0){
       return students.get(0);
     } else {
@@ -36,8 +36,8 @@ public class StudentRepositoryImpl implements StudentRepository {
   }
   
   public List<Student> findAll() {
-    Query query = em.createQuery("SELECT s FROM Student s");
-    List<Student> students = (List<Student>) query.getResultList();
+    TypedQuery<Student> query = em.createQuery("SELECT s FROM Student s", Student.class);
+    List<Student> students = query.getResultList();
     return students;
   }
 

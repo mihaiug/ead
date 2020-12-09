@@ -37,7 +37,6 @@ public class JPAApplicationAdd {
       student.getCourses().add(course2);
 
       
-
       Phone phone1 = new Phone();
       phone1.setNumber("2222221");
       phone1.setType("Vodafone");     

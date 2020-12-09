@@ -49,6 +49,7 @@
       <artifactId>hibernate-entitymanager</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
+    <!-- Java Transaction API Dependencies -->
     <dependency>
       <groupId>javax.transaction</groupId>
       <artifactId>jta</artifactId>
@@ -73,7 +74,7 @@
       <version>${slf4j-log4j12.version}</version>
     </dependency>
 
-    <!-- Spring Framework -->
+    <!-- Spring Framework Dependencies -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
@@ -91,13 +92,13 @@
       <artifactId>spring-orm</artifactId>
       <version>${spring-framework.version}</version>
     </dependency>
-	
-	<!-- Spring Data JPA -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring-data-jpa.version}</version>			
-		</dependency>	
+
+    <!-- Spring Data JPA -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>${spring-data-jpa.version}</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

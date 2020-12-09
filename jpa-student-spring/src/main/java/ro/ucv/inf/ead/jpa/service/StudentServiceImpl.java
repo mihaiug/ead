@@ -27,6 +27,7 @@ public class StudentServiceImpl implements StudentService {
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Student findStudentByName(String name) {
     if (name == null) {
       throw new IllegalArgumentException("Student name cannot be null");

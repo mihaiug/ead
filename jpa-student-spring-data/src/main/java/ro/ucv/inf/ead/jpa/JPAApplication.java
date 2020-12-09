@@ -78,9 +78,6 @@ public class JPAApplication {
     System.out.println("Students enrolled to " + c + ": " + courseService.findEnrolledStudents(courseId));
 
     // studentService.deleteStudent(s1.getId());
-    
-    
-    
 
   }
 
