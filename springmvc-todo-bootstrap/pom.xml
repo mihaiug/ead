@@ -27,6 +27,7 @@
 
 		<!-- Persistence -->
 		<hibernate.version>5.4.22.Final</hibernate.version>
+		<jta.version>1.1</jta.version>
 		<mysql-connector-java.version>8.0.22</mysql-connector-java.version>
 
 		<!-- Logging -->
@@ -41,16 +42,15 @@
 		<!-- Hibernate's Bean Validation - Needed for form validation -->
 		<hibernate-validator.version>6.1.6.Final</hibernate-validator.version>
 
-		<!-- Maven plugins -->
+		<!-- Maven Plugin versions -->
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
-		<jetty-maven-plugin.version>9.4.33.v20201020</jetty-maven-plugin.version>
+		<jetty-maven-plugin.version>9.4.35.v20201120</jetty-maven-plugin.version>
+
 		<jetty.http.port>8000</jetty.http.port>
 	</properties>
 
 	<dependencies>
-	
-		<!-- for compile only, your container should have this -->
+		<!-- For compile only, your container should have this -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -64,8 +64,8 @@
 			<version>${jsp-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
-			
-		<!-- JSTL API-->
+
+		<!-- JSTL Tags library API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -160,7 +160,7 @@
 		<dependency>
 			<groupId>javax.transaction</groupId>
 			<artifactId>jta</artifactId>
-			<version>1.1</version>
+			<version>${jta.version}</version>
 		</dependency>
 		
 		

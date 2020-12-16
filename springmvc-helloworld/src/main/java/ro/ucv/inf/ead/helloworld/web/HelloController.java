@@ -28,7 +28,6 @@ public class HelloController {
 
   @RequestMapping("/")
   public String index(Map<String, Object> model) {
-
     logger.debug("index() is executed!");
 
     model.put("message", helloService.sayHello(""));
@@ -38,13 +37,18 @@ public class HelloController {
 
   @RequestMapping(value = "/hello", method = RequestMethod.GET)
   public String sayHello(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
+    logger.debug("Invoke sayHello() via '/hello' GET -  is executed - $name {}", name);
+    
     model.addAttribute("message", helloService.sayHello(name));
+
     return "index";
   }
 
   @RequestMapping(value = "/hello", method = RequestMethod.POST)
-  public ModelAndView sayHello(HttpServletRequest request, HttpServletResponse response) {
+  public ModelAndView sayHello(HttpServletRequest request, HttpServletResponse response) {    
     String name = request.getParameter("name");
+    
+    logger.debug("Invoke sayHello() via '/hello' POST -  is executed - $name {}", name);
 
     ModelAndView model = new ModelAndView("index");
     model.addObject("message", helloService.sayHello(name));
@@ -55,7 +59,7 @@ public class HelloController {
   @RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
   public ModelAndView sayHello(@PathVariable("name") String name) {
 
-    logger.debug("hello() is executed - $name {}", name);
+    logger.debug("Invoke sayHello() via '/hello/{name:.+}' -  is executed - $name {}", name);
 
     ModelAndView model = new ModelAndView("index");
     model.addObject("message", helloService.sayHello(name));

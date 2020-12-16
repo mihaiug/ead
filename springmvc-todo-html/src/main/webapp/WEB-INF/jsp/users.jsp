@@ -10,7 +10,7 @@
 	 <div class="errorblock"><c:out value="${errorMessage}"/></div>
 	</c:if>
 
-    <div><a href="tasks">View Tasks List</a> | <a href="user/add">Add New User</a></div>
+    <div><a href="tasks">View Tasks List</a> | <a href="<c:url value='/user/add'/>">Add New User</a></div>
     <table border="1" cellpadding="4" cellspacing="0">
     	<tr>
     		<th>Id</th>

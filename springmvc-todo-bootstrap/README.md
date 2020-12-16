@@ -16,13 +16,16 @@ Each _task_ is associated with a _user_ and is defined by the following characte
   + _completed_
 * _Assigned user_ - the task responsible person.
 
-
 A _user_ is characterized by the following attributes:
 
 * _Name_ - the user name;
 * _Email_ - the user email;
 * _Password_ - the user password.
   
+The following image shows the database schema used in this application: 
+
+![Database Schema](db-todo-schema.png "ToDo Database Schema")
+
  
 The current version of application do not implement an authentication mechanism but in the future we plan to add this feature.
 
@@ -34,9 +37,9 @@ The application must provide the following operations:
 Technologies
 ------------
 
-* Spring 5.1.2.RELEASE
-* Spring MVC 5.1.2.RELEASE
-* JPA 2.1
+* Spring 5
+* Spring MVC 5
+* JPA 2.2
 * Bootstrap 3
 * JSP 
 * JSTL 1.2
@@ -44,13 +47,19 @@ Technologies
 * MySQL
 * Spring Tool Suite 
 * Maven 3
-* Tomcat 7+ 
+* Tomcat 8+
 
 Application Setup
 -----------------
 
-In order to run this application you must create a MySQL database called `db_todo` and add a database user to connect to database.
-In our case we use default `root` without password. The database connection details can be changed from file `src/main/resources/jpaContext.xml`:
+In order to run this application you must create a MySQL database called `db_todo`:
+
+```sql
+CREATE DATABASE db_todo CHARACTER SET utf8 COLLATE utf8_bin;
+```
+Optionally, you can add a database user to connect to database. In our case we use default `root` without password. 
+
+The database connection details can be changed from file `src/main/resources/jpaContext.xml`:
 
 ```xml 
 <!-- The database connection details -->
@@ -63,7 +72,8 @@ In our case we use default `root` without password. The database connection deta
 ```
 
 In order to run application using Maven you can use the following command:
+
 ```bash
-    mvn tomcat7:run
+    mvn jetty:run
 ```
-This command launches _Maven Embeded Tomcat_, and next, open in your favorite browser the following address: [http://localhost:8000/todo/](http://localhost:8000/todo/)
+This command launches _Maven Embeded Jetty_, and next, open in your favorite browser the following address: [http://localhost:8000/todo/](http://localhost:8000/todo/)

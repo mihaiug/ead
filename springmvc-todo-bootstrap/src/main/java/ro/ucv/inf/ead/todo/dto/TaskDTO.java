@@ -2,9 +2,9 @@ package ro.ucv.inf.ead.todo.dto;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import javax.validation.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import ro.ucv.inf.ead.todo.model.Task;

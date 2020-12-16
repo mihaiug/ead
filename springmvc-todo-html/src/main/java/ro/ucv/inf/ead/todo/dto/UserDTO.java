@@ -1,11 +1,8 @@
 package ro.ucv.inf.ead.todo.dto;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 
 public class UserDTO {
 
@@ -18,13 +15,12 @@ public class UserDTO {
   @NotBlank(message = "The user email can not be empty")
   @Email(message = "The user email is invalid")
   private String email;
-  
-  private String password;
 
+  private String password;
 
   public UserDTO() {
   }
-  
+
   public UserDTO(Long id) {
     this.id = id;
   }
@@ -60,6 +56,5 @@ public class UserDTO {
   public void setPassword(String password) {
     this.password = password;
   }
-
 
 }

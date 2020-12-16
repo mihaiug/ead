@@ -35,7 +35,7 @@
 		 <!-- JPA Vendor specific properties -->
 		<property name="jpaPropertyMap">
 			<map>
-				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+				<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
 				<!--entry key="hibernate.hbm2ddl.auto" value="create-drop" /-->
 				<entry key="hibernate.hbm2ddl.auto" value="update" />				
 				<entry key="hibernate.format_sql" value="true" />
