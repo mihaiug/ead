@@ -29,7 +29,7 @@
     <mysql.version>8.0.22</mysql.version>
     
     <!-- Logging -->
-    <logback.version>1.0.13</logback.version>
+    <logback.version>1.2.0</logback.version>
     <slf4j.version>1.7.5</slf4j.version>
 
     <!-- Test -->
