@@ -24,14 +24,17 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	
 
 		
-		<!-- Servlet -->
+		<!-- Servlet API -->
 		<servletapi.version>3.1.0</servletapi.version>
 		<jstl.version>1.2</jstl.version>
 		<jsp-api.version>2.1</jsp-api.version>
 
-		<!-- Maven plugins -->
-		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<!-- Maven Plugin versions -->
+		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
 		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+		
+		<server.http.port>8000</server.http.port>
 	</properties>
 	<dependencies>
 
@@ -50,7 +53,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- JSTL API -->
+		<!-- JSTL Tags library API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -87,12 +90,19 @@
 		<plugins>
 			<!-- Set JDK Compiler Level -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin.version}</version>
 			</plugin>
 
 			<!-- Apache Tomcat Plugin to allow running application with mvn tomcat7:run -->
@@ -102,7 +112,7 @@
 				<version>${tomcat7-maven-plugin.version}</version>
 				<configuration>
 					<path>/${project.artifactId}</path>
-					<port>8000</port>
+					<port>${server.http.port}</port>
 				</configuration>
 			</plugin>
 		</plugins>
