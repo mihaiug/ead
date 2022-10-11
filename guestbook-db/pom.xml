@@ -27,7 +27,7 @@
 		<servletapi.version>3.1.0</servletapi.version>
 
 		<!-- MySQL JDBC Driver version -->
-		<mysql.version>8.0.22</mysql.version>
+		<mysql.version>8.0.30</mysql.version>
 		
 		<!-- Maven Plugin versions -->
 		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
