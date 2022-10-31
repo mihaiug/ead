@@ -1,13 +1,13 @@
 JSP Life Cycle 
 ==================
-The __life cycle__ of a JSP page is controlled by the container in which the servlet has been deployed. 
+The __life cycle__ of a JSP page is controlled by the container in which the web application has been deployed. 
 When a request is mapped to a JSP file, the container performs the following steps:
 
 1. When first time a JSP file is requested then the Servlet Container:
-  * translate the JSP page to a Servlet 
-  * compile the Servlet source
-  * load classes, create a Servlet instance 
-  * invoke the `jspInit()` method
+	* translate the JSP page to a Servlet 
+	* compile the Servlet source
+	* load classes, create a Servlet instance 
+	* invoke the `jspInit()` method
 2. Process the request processing via `_jspService()` method
 3. When web container shuts down or web application is unloaded the `jspDestroy()` method is called
 
