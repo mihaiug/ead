@@ -20,12 +20,15 @@ Examples
 2. [Servlet Life Cycle](servlet-lifecycle)
 3. [JSP Life Cycle](jsp-lifecycle)
 4. [Servlet and JSP Sum Calculator](servlet-calculator)
-5. GuestBook
+5. [Servlet and JSP - MVC](servlet-mvc-app)
+6. GuestBook
      - [Simple GuestBook using Java Servlets ](guestbook)
      - [Simple GuestBook using Servlets and JSP pages](guestbook-jsp)
      - [Advanced GuestBook using Java Servlets](guestbook-db)
-6. [Student Enrollment System (using XML configuration file)](spring-student-xml)
-7. [Student Enrollment System (using Java Annotations)](spring-student-annotations)
+7. Spring Framework - Student Enrollment System
+     - [Student Enrollment System (using XML configuration file)](spring-student-xml)
+     - [Student Enrollment System (using Spring Java Configuration class)](spring-student-config)
+     - [Student Enrollment System (using Java Annotations)](spring-student-annotations)
 8. [JPA Student Demo Application](jpa-student)
 9. [Spring JPA Student Demo Application](jpa-student-spring)
 10. [Spring MVC - Hello World](springmvc-helloworld)
