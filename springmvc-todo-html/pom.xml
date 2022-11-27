@@ -26,7 +26,7 @@
 		<spring-security.version>5.4.1</spring-security.version>
 
 		<!-- Persistence -->
-		<hibernate.version>5.4.22.Final</hibernate.version>
+		<hibernate.version>5.6.14.Final</hibernate.version>
 		<jta.version>1.1</jta.version>
 		<mysql-connector-java.version>8.0.30</mysql-connector-java.version>
 
