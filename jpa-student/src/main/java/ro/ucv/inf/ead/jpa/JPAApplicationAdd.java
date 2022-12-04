@@ -46,7 +46,7 @@ public class JPAApplicationAdd {
       
       em.persist(student);
       em.getTransaction().commit();
-      System.out.println("Adding students - End Transction");
+      System.out.println("Adding students - End Transaction");
 
     } catch (Exception e) {
       System.err.println("Adding students - Rollback. Error: " + e.getMessage());
