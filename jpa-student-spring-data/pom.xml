@@ -22,8 +22,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Spring -->
-    <spring-framework.version>5.2.9.RELEASE</spring-framework.version>
-    <spring-data-jpa.version>2.3.4.RELEASE</spring-data-jpa.version>
+    <spring-framework.version>5.3.24</spring-framework.version>
+    <spring-data-jpa.version>2.7.6</spring-data-jpa.version>
 
     <!-- Persistence -->
     <hibernate.version>5.6.14.Final</hibernate.version>
