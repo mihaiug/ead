@@ -42,14 +42,14 @@
 	
 	<p>
 		Add new message:	
-		<form action="<c:url value="/GuestBook"/>" method="post">
-		<input type="hidden" name="action" value="add"> <br>
-		Name: <input type='text' name='userName'> <br>
-		Email: <input type='text' name='userEmail'> <br>
-		Message: <br>
-		<textarea name='message' rows='4' cols='50'></textarea> <br>
-		<input type='submit' value='Add'> <br>
-		</form>
+        <form action="<c:url value="/GuestBook"/>" method="post">
+        	<input type="hidden" name="action" value="add">
+        	Name: <input type='text' name='userName'> <br>
+        	Email: <input type='text' name='userEmail'> <br>
+        	Message: <br>
+        	<textarea name='message' rows='4' cols='50'></textarea> <br>
+        	<input type='submit' value='Add'> <br>
+        </form>
 	</p>
 </body>
 </html>
