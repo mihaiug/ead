@@ -80,8 +80,8 @@ public class TaskController {
   public String getEditTaskForm(@RequestParam(value = "id", required = true) Long id,
       Model model,  RedirectAttributes redirectAttributes) {
     Task task = taskService.findTask(id);
-    logger.debug("Edit task {}", task);
     if (task != null) {
+      logger.debug("Edit task {}", task);
       // Create and put a TaskDTO needed to edit task.
       TaskDTO taskDTO = new TaskDTO();
       taskDTO.setId(task.getId());

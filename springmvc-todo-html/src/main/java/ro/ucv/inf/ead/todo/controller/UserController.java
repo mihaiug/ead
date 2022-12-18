@@ -128,7 +128,7 @@ public class UserController {
 
         userService.update(userToUpdate);
       } catch (DuplicateRecordException e) {
-        result.rejectValue("email", "duplicate", "New email address already used by other user");
+        result.rejectValue("email", "duplicate", "New email address already used by another user");
         logger.error("Update user error: " + result.getAllErrors());
         return "update-user";
       }
