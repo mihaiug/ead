@@ -5,7 +5,9 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ro.ucv.inf.ead.todo.exception.DuplicateRecordException;
@@ -39,7 +41,7 @@ public class UserServiceImpl implements UserService {
   @Override
   @Transactional
   public User add(User user) {
-    // Check if already exist a user with same email.
+    // Check if already exists a user with same email.
     User existingUser = userRepository.findByEmail(user.getEmail());
     if (existingUser != null) {
       String errorMessage = "Already exists a user with same email: " + user.getEmail();
@@ -64,13 +66,13 @@ public class UserServiceImpl implements UserService {
     if (!existingUser.getEmail().equals(user.getEmail())) {
       // Email changed, check again if new email already exists
       if (userRepository.findByEmail(user.getEmail()) != null) {
-        String errorMessage = "The new email addres already used by other user: " + user.getEmail();
+        String errorMessage = "The new email address already used by another user: " + user.getEmail();
         logger.error(errorMessage);
         throw new DuplicateRecordException(errorMessage);
       }
     }
     if (user.getPassword() == null) {
-      // if password is null keep existing password
+      // if password is null keep the existing password
       user.setPassword(existingUser.getPassword());
     }
 
