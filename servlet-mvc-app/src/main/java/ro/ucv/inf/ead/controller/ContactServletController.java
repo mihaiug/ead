@@ -25,7 +25,7 @@ public class ContactServletController extends HttpServlet {
     // Add to request the model.
     request.setAttribute("contact", contact);
 
-    // Chose the view to display model.
+    // Choose the view to display model.
     RequestDispatcher view = request.getRequestDispatcher("contact.jsp");
     view.forward(request, response);
   }

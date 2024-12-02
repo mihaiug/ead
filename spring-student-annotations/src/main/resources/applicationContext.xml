@@ -11,7 +11,7 @@
 	<!-- Scans the classpath for annotated components that will be auto-registered 
 		as Spring beans. For example @Repository, @Service, @Controller. Make sure 
 		to set the correct base-package -->
-	<context:component-scan base-package="ro.ucv.inf.ead.spring" />
+	<context:component-scan base-package="ro.ucv.inf.ead.spring.repository, ro.ucv.inf.ead.spring.service" />
 
 </beans>
 

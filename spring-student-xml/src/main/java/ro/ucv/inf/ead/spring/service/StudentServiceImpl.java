@@ -25,7 +25,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     if (student.getFaculty() == null) {
-      throw new IllegalArgumentException("Name cannot be null");
+      throw new IllegalArgumentException("Faculty cannot be null");
     }
     studentRepository.addStudent(student);
   }

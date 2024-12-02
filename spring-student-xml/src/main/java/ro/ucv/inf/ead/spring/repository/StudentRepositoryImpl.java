@@ -7,7 +7,7 @@ import ro.ucv.inf.ead.spring.model.Student;
 
 public class StudentRepositoryImpl implements StudentRepository {
 
-  List<Student> students = new LinkedList<Student>();
+  List<Student> students = new LinkedList<>();
 
   public StudentRepositoryImpl() {
     System.out.println("Create a StudentRepositoryImpl object.");
