@@ -67,7 +67,7 @@ An implementation of this interface that store information in a simple list in m
 @Repository("studentRepository")
 public class StudentRepositoryImpl implements StudentRepository {
      
-  List<Student> students = new LinkedList<Student>();
+  List<Student> students = new LinkedList<>();
   
   
   public StudentRepositoryImpl(){
@@ -122,7 +122,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     if (student.getFaculty() == null) {
-      throw new IllegalArgumentException("Name cannot be null");
+      throw new IllegalArgumentException("Faculty cannot be null");
     }
     studentRepository.addStudent(student);
   }
@@ -184,3 +184,10 @@ To compile and run the project using STS you must perform the following steps:
  -  Select the folder where is located the `spring-student-annotations` project (e.g. `d:\workspace\spring-student-config`)
 * Run the project:
  - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application`  class from the `spring-student-config` project, right click and select `Run As -> Java Application`
+
+ Alternatively, if you use Apache Maven the following commands must executed:
+``` bat
+cd /d  d:\workspace\spring-student-config
+mvn clean package
+mvn exec:java
+```  
