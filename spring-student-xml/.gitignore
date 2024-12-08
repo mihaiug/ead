@@ -5,6 +5,13 @@
 *.ear
 
 
+# Log files
+
+*.log
+
+logs/*.log
+
+
 # Eclipse
 .settings/
 *.project
