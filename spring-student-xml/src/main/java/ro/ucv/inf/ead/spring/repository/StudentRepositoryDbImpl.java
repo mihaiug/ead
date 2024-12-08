@@ -24,7 +24,7 @@ public class StudentRepositoryDbImpl implements StudentRepository {
   @Override
   public List<Student> findAll() {
     Connection connection = getConnection();
-    List<Student> students = new ArrayList<Student>();
+    List<Student> students = new ArrayList<>();
     try {
       String query = "SELECT * FROM students";
       PreparedStatement preparedStatement = connection.prepareStatement(query);

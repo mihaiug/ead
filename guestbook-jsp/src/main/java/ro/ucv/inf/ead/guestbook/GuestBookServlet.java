@@ -24,7 +24,7 @@ public class GuestBookServlet extends HttpServlet {
   /**
    * Keeps list of available commands.
    */
-  private Map<String, Command> commands = new HashMap<String, Command>();
+  private Map<String, Command> commands = new HashMap<>();
 
   public GuestBookServlet() {
     super();

@@ -86,7 +86,7 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
    * @return A list containing the guest book messages.
    */
   public List<Comment> getAllComments() {
-    List<Comment> comments = new ArrayList<Comment>();
+    List<Comment> comments = new ArrayList<>();
     try {
       String query = "SELECT * FROM comments";
       PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query);
@@ -158,10 +158,8 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
    */
   public User findUser(long id) {
     User user = null;
-    
-    try {
-      String query = "SELECT * FROM users WHERE id = ?";
-      PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query);
+    String query = "SELECT * FROM users WHERE id = ?";
+    try (PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query)){
       preparedStatement.setLong(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
       if (resultSet.next()) {

@@ -14,12 +14,12 @@ public class GuestBookDAOMemImpl implements GuestBookDAO {
   /**
    * Keep the list of guestbook messages.
    */
-  private List<Comment> comments = new LinkedList<Comment>();
+  private List<Comment> comments = new LinkedList<>();
 
   /**
    * Keep the list of guestbook users.
    */
-  private List<User> users = new LinkedList<User>();
+  private List<User> users = new LinkedList<>();
 
   /**
    * The last comment id. It is used to generate unique ids.
