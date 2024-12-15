@@ -93,10 +93,10 @@ In order to install the Spring Tools Suite for Eclipse follow the next steps:
 
 1. Download the _Spring Tool Suite for Eclipse_, for example [spring-tool-suite-4-4.25.0.RELEASE-e4.33.0-win32.win32.x86_64.zip](https://cdn.spring.io/spring-tools/release/STS4/4.25.0.RELEASE/dist/e4.33/spring-tool-suite-4-4.25.0.RELEASE-e4.33.0-win32.win32.x86_64.zip)
 2. Unpack the binary archive `spring-tool-suite-4-4.25.0.RELEASE-e4.33.0-win32.win32.x86_64.zip` to the folder you want to install, for example `D:\JEE\tools\sts-4.25.0.RELEASE`
-3. Launch the application `SpringToolSuite4.exe` located in `D:\JEE\tools\sts-4.25.0.RELEASE\bin` and perform the following additional configurations to add installed Tomcat 9.0 in STS servers 
+3. Launch the application `SpringToolSuite4.exe` located in `D:\JEE\tools\sts-4.25.0.RELEASE\bin` and perform the following additional configurations to add installed Tomcat 9.0 in STS servers configuration:
 * Go to `Help` -> `Eclipse Marketplace` -> `Other` -> `Popular` and install [Eclipse Enterprise Java and Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-enterprise-java-and-web-developer-tools) plugin:
     ![Install `Eclipse Enterprise Java and Web Developer Tools` plugin](images/install-eclipse-jee-and-web-plugin.png)
-configuration:
+
 * Go to `Window` -> `Show View` -> `Other` -> `Server` -> `Servers`  
 * In the `Servers` panel click on `No servers available...` in order to add support for Tomcat 9.x in STS 4
 * Select `Apache`->`Tomcat v9.0 server`
