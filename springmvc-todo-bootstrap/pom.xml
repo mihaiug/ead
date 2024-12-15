@@ -21,14 +21,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Spring -->
-		<spring-framework.version>5.3.24</spring-framework.version>
-		<spring-data-jpa.version>2.7.6</spring-data-jpa.version>
-		<spring-security.version>5.7.5</spring-security.version>
+		<spring-framework.version>5.3.39</spring-framework.version>
+		<spring-data-jpa.version>2.7.18</spring-data-jpa.version>
+		<spring-security.version>5.8.16</spring-security.version>
 
 		<!-- Persistence -->
-		<hibernate.version>5.6.14.Final</hibernate.version>
+		<hibernate.version>5.6.15.Final</hibernate.version>
 		<jta.version>1.1</jta.version>
-		<mysql-connector-java.version>8.0.30</mysql-connector-java.version>
+		<mysql-connector-java.version>9.1.0</mysql-connector-java.version>
 
 		<!-- Logging -->
 		<slf4j.version>1.7.25</slf4j.version>
@@ -185,8 +185,8 @@
 		
 		<!-- JDBC MySQL Connector -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
 			<version>${mysql-connector-java.version}</version>
 		</dependency>
 		
