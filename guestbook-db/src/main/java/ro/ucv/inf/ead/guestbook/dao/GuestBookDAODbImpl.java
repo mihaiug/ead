@@ -1,6 +1,7 @@
 package ro.ucv.inf.ead.guestbook.dao;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -159,7 +160,8 @@ public class GuestBookDAODbImpl implements GuestBookDAO {
   public User findUser(long id) {
     User user = null;
     String query = "SELECT * FROM users WHERE id = ?";
-    try (PreparedStatement preparedStatement = dbConnectionManager.getConnection().prepareStatement(query)){
+    try (Connection connection = dbConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)){
       preparedStatement.setLong(1, id);
       ResultSet resultSet = preparedStatement.executeQuery();
       if (resultSet.next()) {

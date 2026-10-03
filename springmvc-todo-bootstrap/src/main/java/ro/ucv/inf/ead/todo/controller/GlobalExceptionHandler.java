@@ -18,7 +18,7 @@ class GlobalExceptionHandler {
 
   @ExceptionHandler(value = Exception.class)
   public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
-    logger.error("Process error: " + e.getMessage());
+    logger.error("Process error: {}", e.getMessage());
 
     // If the exception is annotated with @ResponseStatus rethrow it and let
     // the framework handle it - like the OrderNotFoundException example
