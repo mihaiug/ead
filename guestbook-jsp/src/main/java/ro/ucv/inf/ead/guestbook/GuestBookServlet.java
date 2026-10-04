@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import java.util.*;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 
 import ro.ucv.inf.ead.guestbook.command.*;
 import ro.ucv.inf.ead.guestbook.dao.*;

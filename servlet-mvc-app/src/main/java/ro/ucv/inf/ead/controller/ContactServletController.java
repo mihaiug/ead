@@ -2,12 +2,12 @@ package ro.ucv.inf.ead.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import ro.ucv.inf.ead.model.Contact;
 
@@ -17,8 +17,7 @@ import ro.ucv.inf.ead.model.Contact;
 @WebServlet("/contacts")
 public class ContactServletController extends HttpServlet {
 
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-      throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     // Build model used by view. This can be extracted from a database.
     Contact contact = new Contact("Mihai", "+4012345678");
 

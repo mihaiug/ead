@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ro.ucv.inf.ead</groupId>
 	<artifactId>mvc-app</artifactId>
@@ -17,80 +18,86 @@
 	</organization>
 
 	<properties>
-		<!-- Generic properties -->
-		<java.version>1.8</java.version>
+		<!-- Compiler settings -->
+		<maven.compiler.release>17</maven.compiler.release>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		
-		<!-- Servlet API -->
-		<servletapi.version>3.1.0</servletapi.version>
-		<jstl.version>1.2</jstl.version>
-		<jsp-api.version>2.1</jsp-api.version>
+		<!-- Servlet/JSP API versions (Compatible with Tomcat 10.1+ / Java 17). -->
+		<servlet-api.version>6.0.0</servlet-api.version>
+		<jsp-api.version>3.1.0</jsp-api.version>
+		<jstl.version>3.0.1</jstl.version>
 
 		<!-- Maven Plugin versions -->
-		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+		<maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.4.0</maven-war-plugin.version>
 
-		<server.http.port>8000</server.http.port>
+		<jetty-maven-plugin.version>11.0.26</jetty-maven-plugin.version>
+		<jetty.http.port>8000</jetty.http.port>
 	</properties>
 
 	<dependencies>
-		<!-- For compile only, your container should have this -->
+		<!-- Jakarta Servlet API (scope: provided, as Tomcat 10+ / Jetty 11 provides it) -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>${servletapi.version}</version>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- Jakarta Server Pages (JSP) API -->
 		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
 			<version>${jsp-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- JSTL Tags library API -->
+		<!-- Jakarta Standard Tag Library (JSTL) API and Implementation -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 			<version>${jstl.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
-
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
-			<!-- Set JDK Compiler Level -->
+			<!-- JDK Compiler Configuration -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
 			</plugin>
 
+			<!-- Plugin for packaging the .war file -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${maven-war-plugin.version}</version>
-			</plugin>
-
-			<!-- Apache Tomcat Plugin to allow running application with mvn tomcat7:run -->
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>${tomcat7-maven-plugin.version}</version>
 				<configuration>
-					<path>/${project.artifactId}</path>
-					<port>${server.http.port}</port>
+					<!-- Prevents build failure if web.xml is missing (using @WebServlet annotations) -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-			
+
+			<!-- Jetty Plugin to allow running application with mvn jetty:run -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty-maven-plugin.version}</version>
+				<configuration>
+					<webApp>
+						<contextPath>/${project.artifactId}</contextPath>
+					</webApp>
+					<!-- Check for changes and automatically hot redeploy if any are detected every 2 seconds -->
+					<scan>2</scan>
+					<httpConnector>
+						<port>${jetty.http.port}</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

@@ -61,4 +61,19 @@ public class Comment {
 		this.message = message;
 	}
 
+	public String toString(){
+	  StringBuilder sb = new StringBuilder();
+	  sb.append("Comment(");
+	  sb.append("id:").append(id);
+	  sb.append(", ");
+	  sb.append("date:").append(date);
+	  sb.append(", ");
+	  sb.append("userName:").append(userName);
+	  sb.append(", ");
+	  sb.append("message:").append(message);
+	  sb.append(")");
+	  return sb.toString();
+	  
+	}
+
 }

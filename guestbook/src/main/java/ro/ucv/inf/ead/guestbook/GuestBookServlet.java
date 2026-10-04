@@ -5,11 +5,11 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import ro.ucv.inf.ead.guestbook.dao.GuestBookDAO;
 import ro.ucv.inf.ead.guestbook.dao.GuestBookDAOMemImpl;
@@ -36,6 +36,7 @@ public class GuestBookServlet extends HttpServlet {
 	 * 
 	 * @param config a ServletConfig object containing the servlet's configuration and initialization parameters.
 	 */
+  @Override
 	public void init(ServletConfig config) throws ServletException {
 		guestBookDao = new GuestBookDAOMemImpl();
 		guestBookDao.addComment(new Comment(1, "Mihai", "mihai@inf.ucv.ro", new Date(), "Hello from Mihai"));
@@ -50,6 +51,7 @@ public class GuestBookServlet extends HttpServlet {
 	 * 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+  @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if ("add".equals(action)){
@@ -58,6 +60,7 @@ public class GuestBookServlet extends HttpServlet {
 		doListComments(request, response);
 	}
 	
+  @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       doGet(request, response);
     }

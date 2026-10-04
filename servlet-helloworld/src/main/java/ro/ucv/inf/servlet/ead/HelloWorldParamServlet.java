@@ -2,8 +2,8 @@ package ro.ucv.inf.servlet.ead;
 
 import java.io.*;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 
 
 public class HelloWorldParamServlet extends HttpServlet {

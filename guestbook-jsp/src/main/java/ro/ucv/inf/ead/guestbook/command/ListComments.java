@@ -2,8 +2,8 @@ package ro.ucv.inf.ead.guestbook.command;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import ro.ucv.inf.ead.guestbook.dao.GuestBookDAO;
 import ro.ucv.inf.ead.guestbook.model.Comment;
