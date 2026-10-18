@@ -52,13 +52,19 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Jakarta Standard Tag Library (JSTL) API and Implementation -->
+		<!-- Jakarta Standard Tag Library (JSTL) API -->
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<!-- Jakarta Standard Tag Library (JSTL) Implementation (Glassfish) -->
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 			<version>${jstl.version}</version>
-			<scope>runtime</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>

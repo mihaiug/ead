@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>GuestBook List Messages</title>
+<title>Phonebook Contact View</title>
 </head>
 <body>
 	<h1>Phonebook with JSTL</h1>
@@ -15,9 +15,9 @@
 	</c:if>
 
 	<p>
-		Name:<c:out value="${contact.name}" />
+		Name: <c:out value="${contact.name}" escapeXml="true" />
 	</p>
 	<p>
-		Phone:<c:out value="${contact.phone}" />
+		Phone: <c:out value="${contact.phone}" />
 </body>
 </html>
