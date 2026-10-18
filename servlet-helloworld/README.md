@@ -7,9 +7,9 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.8 +
+* JDK 17 +
 * [Apache Maven](https://maven.apache.org) 
-* [Apache Tomcat](https://tomcat.apache.org)
+* [Apache Tomcat 10.1+](https://tomcat.apache.org)
 * [Spring Tool Suite for Eclipse](https://spring.io/tools)
 
 Compile and run the application
@@ -31,13 +31,13 @@ cd /d tomcat-install-directory\bin
 start.bat
 ```
 
-Alternatively, you can run the application using Maven Tomcat plugin:
+Alternatively, you can run the application using Maven Jetty plugin:
 
 ``` bat
 cd /d  d:\workspace\servlet-helloworld
-mvn tomcat7:run
+mvn jetty:run
 ```
-This command launches _Maven Embeded Tomcat_ and next, open in your favorite browser the following address: [http://localhost:8000/helloworld/](http://localhost:8000/helloworld/)
+This command launches _Maven Embeded Jetty_, and next, open in your favorite browser the following address: [http://localhost:8000/helloworld/](http://localhost:8000/helloworld/)
 
 
 ### Using Spring Tool Suite
