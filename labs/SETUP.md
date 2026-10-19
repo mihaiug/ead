@@ -19,15 +19,16 @@ In order to install the Java SE Development Kit 17 follow the next steps:
 1. Download the Java SE Development Kit 17 installer. The current version is [JDK 17.0.20.1](https://adoptium.net/temurin/releases?version=17&os=any&arch=any). The version you download may be newer.
 2. Run the setup, accept the defaults and follow the screen instructions to install JDK and JRE.
 3. Set the `JAVA_HOME` environment variable to `C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot` or location where you choose to install:
-```bat
-set JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot"
-```
+   
+   ```bat
+   set JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot"
+   ```
 4. Update the `PATH` environment variable to include the location where Java executables are stored. In this case `C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot\bin`:
-
-```bat
-set PATH="%PATH%;%JAVA_HOME%\bin"
-```
-To set environment variables permanently see section [How to set an Environment Variable](#how-to-set-an-environment-variable).
+   
+   ```bat
+   set PATH="%PATH%;%JAVA_HOME%\bin"
+   ```
+   To set environment variables permanently see section [How to set an Environment Variable](#how-to-set-an-environment-variable).
 
 You can check if JDK is correct installed opening a `Command Prompt Console` and running the following command: 
 ``` bat
@@ -45,18 +46,18 @@ In order to install the Apache Maven follow the next steps:
 1. Download the [latest release](https://maven.apache.org/download.cgi),  for example  [apache-maven-3.9.16-bin.zip](https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.zip). The version you download may be newer. 
 2. Unpack the binary archive `apache-maven-3.9.16-bin.zip` to the folder you want to install, for example `D:\JEE\tools\apache-maven-3.9.16`.
 3. Check if `JAVA_HOME` point to location where JDK is installed.
-
-``` bat
-C:\Users\Admin>echo %JAVA_HOME%
-C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot
-```
+   
+   ```bat
+   C:\Users\Admin>echo %JAVA_HOME%
+   C:\Program Files\Eclipse Adoptium\jdk-17.0.20.101-hotspot
+   ```
 4. Set the `MAVEN_HOME` environment variable to `D:\JEE\tools\apache-maven-3.9.16` (location where Maven is unpacked).
 5. Update the `PATH` environment variable to include the folder where `mvn.cmd` is stored:
-```bat
-set PATH=%PATH%;%MAVEN_HOME%\bin
-```
-
-To set environment variables permanently see section [How to set an Environment Variable](#how-to-set-an-environment-variable).
+   
+   ```bat
+   set PATH=%PATH%;%MAVEN_HOME%\bin
+   ```
+   To set environment variables permanently see section [How to set an Environment Variable](#how-to-set-an-environment-variable).
 
 You can check if Maven is correct installed opening a `Command Prompt Console` and running the following command: 
 ``` bat
@@ -70,7 +71,7 @@ OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 
 Installing the Apache Tomcat
 ----------------------------
-[Apache Tomcat](http://tomcat.apache.org/), is an open-source Java Servlet Container developed by the Apache Software Foundation. Tomcat implements several Java EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket.
+[Apache Tomcat](http://tomcat.apache.org/), is an open-source Java Servlet Container developed by the Apache Software Foundation. Tomcat implements several Jakarta EE specifications including Java Servlet, JavaServer Pages (JSP), Java EL, and WebSocket.
 In order to install the Apache Tomcat 10.1 follow the next steps:
 
 1. Download the [latest release](https://tomcat.apache.org/download-10.cgi), for example [apache-tomcat-10.1.61.zip](https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.61/bin/apache-tomcat-10.1.61.zip). The version you download may be newer like Tomcat 10.x. Please note that Tomcat 9.x is implements Java EE specifications that are not compatible with Jakarta EE specifications.
@@ -94,22 +95,29 @@ In order to install the Spring Tools Suite for Eclipse follow the next steps:
 1. Download the _Spring Tool Suite for Eclipse_, for example [sspring-tools-for-eclipse-5.4.0.RELEASE-e4.41.0-win32.win32.x86_64.zip](https://cdn.spring.io/spring-tools/release/dist/5.4.0.RELEASE/e4.41/spring-tools-for-eclipse-5.4.0.RELEASE-e4.41.0-win32.win32.x86_64.zip)
 2. Unpack the binary archive `spring-tools-for-eclipse-5.4.0.RELEASE-e4.41.0-win32.win32.x86_64.zip` to the folder you want to install, for example `D:\JEE\tools\sts-5.4.0.RELEASE`
 3. Launch the application `SpringToolsForEclipse.exe` located in `D:\JEE\tools\sts-5.4.0.RELEASE\bin` and perform the following additional configurations to add installed Tomcat 10.1 in STS servers configuration:
-* Go to `Help` -> `Eclipse Marketplace` -> `Search` -> `Find`, type _Eclipse Enterprise_, Press `Go` and install [Eclipse Enterprise Java and Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-enterprise-java-and-web-developer-tools) plugin:
-    ![Install `Eclipse Enterprise Java and Web Developer Tools` plugin](images/install-eclipse-jee-and-web-plugin.png)
-
-* Go to `Window` -> `Show View` -> `Other` -> `Server` -> `Servers`  
-* In the `Servers` panel click on `No servers available...` in order to add support for Tomcat 10.1 in STS 4
-* Select `Apache`->`Tomcat v10.1 server`
-* Select folder where Tomcat is unpacked, for example `D:\JEE\tools\apache-tomcat-10.1.60`   
+   
+   * Go to `Help` -> `Eclipse Marketplace` -> `Search` -> `Find`, type _Eclipse Enterprise_, Press `Go` and install [Eclipse Enterprise Java and Web Developer Tools](https://marketplace.eclipse.org/content/eclipse-enterprise-java-and-web-developer-tools) plugin:
+      
+      ![Install _Eclipse Enterprise Java and Web Developer Tools_ plugin](images/install-eclipse-jee-and-web-plugin.png)
+     
+   * Go to `Window` -> `Show View` -> `Other` -> `Server` -> `Servers`  
+   * In the `Servers` panel click on `No servers available...` in order to add support for Tomcat 10.1 in STS
+   * Select `Apache`->`Tomcat v10.1 server`
+   * Select folder where Tomcat is unpacked, for example `D:\JEE\tools\apache-tomcat-10.1.60`   
 
 How to set an Environment Variable
 ----------------------------------
 1. Open `Start` on Windows 11. 
 2. Search for `Edit the System Environment Variable` and click the top result to open the `System Properties` panel.
-3. From `Advanced` tab click the `Environment Variables`. ![System Properties](images/system-properties.png)
-
-4. Click the `New` or `Edit` button under the `User variables for User` or the `System variables` in order to add or edit the variable.![ Add or Edit Environment Variables](images/edit-enviroment-variables.png)
+3. From `Advanced` tab click the `Environment Variables`
    
+   ![System Properties](images/system-properties.png)
+
+4. Click the `New` or `Edit` button under the `User variables for User` or the `System variables` in order to add or edit the variable.
+   
+   ![ Add or Edit Environment Variables](images/edit-enviroment-variables.png)
+   
+
 References
 ---------------
 1. [How to install Maven on Windows, Linux, Mac](https://www.baeldung.com/install-maven-on-windows-linux-mac)
