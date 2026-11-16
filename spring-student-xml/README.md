@@ -65,7 +65,7 @@ An implementation of this interface that store information in a simple list in m
 ```java
 public class StudentRepositoryImpl implements StudentRepository {
 
-  List<Student> students = new LinkedList<>();
+  private List<Student> students = new LinkedList<>();
 
   public StudentRepositoryImpl() {
     System.out.println("Create a StudentRepositoryImpl object.");
@@ -145,10 +145,13 @@ The Spring bean configuration file `src/main/resources/applicationContext.xml` d
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean name="studentRepository"  class="ro.ucv.inf.ead.spring.repository.StudentRepositoryImpl" scope="singleton" />
-
+     
+  <bean name="studentRepositoryMem"  class="ro.ucv.inf.ead.spring.repository.StudentRepositoryImpl" 
+  		init-method="init" destroy-method="destroy"
+  		scope="singleton" />
+    
   <bean name="studentService" class="ro.ucv.inf.ead.spring.service.StudentServiceImpl">
-    <property name="studentRepository" ref="studentRepository" />
+    <property name="studentRepository" ref="studentRepositoryMem" />
   </bean>
 
 </beans>
@@ -158,8 +161,8 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.8 +
-* [Apache Maven](https://maven.apache.org) 
+* JDK 17 +
+* [Apache Maven](https://maven.apache.org) or
 * [Spring Tool Suite](https://spring.io/tools)
 
 Compile and run application
@@ -170,7 +173,7 @@ To compile and run the project using STS you must perform the following steps:
  - `File -> Import -> Import Existing Maven Projects`
  -  Select the folder where is located the `spring-student-xml` project (e.g. `d:\workspace\spring-student-xml`)
 * Run the project:
- - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application` or `ro.ucv.inf.ead.spring.AplicationConstr` class from the `spring-student-xml` project, right click and select `Run As -> Java Application`
+ - From the `Package Explorer` view select `ro.ucv.inf.ead.spring.Application` class from the `spring-student-xml` project, right click and select `Run As -> Java Application`
  
  Alternatively, if you use Apache Maven the following commands must executed:
 ``` bat

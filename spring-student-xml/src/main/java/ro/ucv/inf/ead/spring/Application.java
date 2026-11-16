@@ -8,8 +8,8 @@ import ro.ucv.inf.ead.spring.service.StudentService;
 public class Application {
 
   public void process() {
-    String beansConfigFile = "applicationContext.xml";
-    // String beansConfigFile = "applicationContext-mysql.xml";
+    //String beansConfigFile = "applicationContext.xml";
+    String beansConfigFile = "applicationContext-mysql.xml";
 
     try (ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext(beansConfigFile)) {
 

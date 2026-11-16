@@ -42,7 +42,6 @@ public class Student {
   }
  
 }
-
 ```
 
 Repository
@@ -64,25 +63,42 @@ public interface StudentRepository {
 An implementation of this interface that store information in a simple list in memory is the following:
 
 ```java
-@Repository("studentRepository")
 public class StudentRepositoryImpl implements StudentRepository {
-     
-  List<Student> students = new LinkedList<>();
   
+  private static final Logger logger = LoggerFactory.getLogger(StudentRepositoryImpl.class);
+     
+  private List<Student> students = new LinkedList<>();
   
   public StudentRepositoryImpl(){
-    System.out.println("Create a StudentRepositoryImpl object.");
+    logger.debug("Create a {} object.", StudentRepositoryImpl.class.getName());
   }
   
+  @Override
   public List<Student> findAll(){
     return students;
   }
   
-
+  @Override
   public void addStudent(Student student){
     students.add(student);
   }
-   
+  
+  /**
+   * Run after all properties are set on the bean.
+   */
+  public void init() {
+    logger.debug("Call StudentRepositoryImpl.init()");
+    System.out.println("Call StudentRepositoryImpl.init()");
+  }
+
+   /**
+   * Run when the bean is destroyed.
+   */
+  public void shutdown() {
+    logger.debug("Call StudentRepositoryImpl.shutdown()");
+    System.out.println("Call StudentRepositoryImpl.shutdown()");
+  }
+
  }
 ```
 
@@ -103,20 +119,25 @@ public interface StudentService {
 An implementation of this interface is the following:
 
 ```java
-@Service("studentService")
 public class StudentServiceImpl implements StudentService {
   
-  @Autowired
+  private static final Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
+  
+  //@Autowired
   private StudentRepository studentRepository;
 
   public StudentServiceImpl() {
+    System.out.println("Create StudentServiceImpl using default constructor");
   }
   
   public StudentServiceImpl(StudentRepository studentRepository) {
-     this.studentRepository = studentRepository;
+    System.out.println("Create StudentServiceImpl using constructor with args");
+    this.studentRepository = studentRepository;
   }
-  
+
+  @Override
   public void enrollStudent(Student student) {
+    logger.debug("Start enrolling user: {}", student);
     if (student.getName() == null) {
       throw new IllegalArgumentException("Name cannot be null");
     }
@@ -125,8 +146,10 @@ public class StudentServiceImpl implements StudentService {
       throw new IllegalArgumentException("Faculty cannot be null");
     }
     studentRepository.addStudent(student);
+    logger.info("User {} was enrolled with success", student);
   }
 
+  @Override
   public List<Student> getAllEnrolledStudents() {
     return studentRepository.findAll();
   }
@@ -145,6 +168,7 @@ The application beans used by IoC container are described by the following class
 package ro.ucv.inf.ead.spring.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import ro.ucv.inf.ead.spring.repository.StudentRepository;
@@ -152,17 +176,19 @@ import ro.ucv.inf.ead.spring.repository.StudentRepositoryImpl;
 import ro.ucv.inf.ead.spring.service.StudentService;
 import ro.ucv.inf.ead.spring.service.StudentServiceImpl;
 
+@Configuration
 public class ApplicationConfig {
 
   @Bean(name="studentRepository", initMethod = "init", destroyMethod = "shutdown" )
   @Scope("singleton")
   public StudentRepository createStudentRepository() {
+    System.out.println("Create studentRepository bean from " + this.getClass().getCanonicalName());
     return new StudentRepositoryImpl();
   }
   
   @Bean("studentService")
-  public StudentService createStudentService() {
-    return new StudentServiceImpl(createStudentRepository());
+  public StudentService createStudentService(StudentRepository studentRepository) {
+    return new StudentServiceImpl(studentRepository);
   }
 }
 ```
@@ -171,8 +197,8 @@ Requirements
 ------------
 In order to compile and run this application the following software are needed:
 
-* JDK 1.8 +
-* [Apache Maven](https://maven.apache.org) 
+* JDK 17 +
+* [Apache Maven](https://maven.apache.org) or
 * [Spring Tool Suite](https://spring.io/tools)
 
 Compile and Run

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--Console appender (write messages to standard console output)-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Define log pattern with colors for IDE -->
+            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan([%thread]) %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File appender (write messages to logs/application.log) -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application.log</file>
+        <append>true</append>
+        <encoder>
+            <!-- Define log pattern -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- General log level (Spring, other l etc.) -->
+    <!-- Root configuration (routes everything  to the file) -->
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+    
+    <!-- Custom level of detail for application's package -->
+    <logger name="ro.ucv.inf.ead.spring" level="OFF"  >
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </logger>
+
+</configuration>

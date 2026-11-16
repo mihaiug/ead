@@ -1,6 +1,7 @@
 package ro.ucv.inf.ead.spring.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import ro.ucv.inf.ead.spring.repository.StudentRepository;
@@ -8,6 +9,7 @@ import ro.ucv.inf.ead.spring.repository.StudentRepositoryImpl;
 import ro.ucv.inf.ead.spring.service.StudentService;
 import ro.ucv.inf.ead.spring.service.StudentServiceImpl;
 
+@Configuration
 public class ApplicationConfig {
 
   @Bean(name="studentRepository", initMethod = "init", destroyMethod = "shutdown" )
@@ -18,7 +20,7 @@ public class ApplicationConfig {
   }
   
   @Bean("studentService")
-  public StudentService createStudentService() {
-    return new StudentServiceImpl(createStudentRepository());
+  public StudentService createStudentService(StudentRepository studentRepository) {
+    return new StudentServiceImpl(studentRepository);
   }
 }
